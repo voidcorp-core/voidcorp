@@ -27,13 +27,13 @@ export default function Web() {
     <div className="min-h-screen overflow-hidden bg-[#05030a] text-white">
       {/* Header with Void Corp Logo */}
       <motion.header
-        className="fixed top-0 right-0 left-0 z-50 px-8 py-6"
+        className="fixed top-0 right-0 left-0 z-50 bg-[#05030a]/50 px-8 py-3"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <div className="mx-auto flex max-w-7xl justify-center">
-          <div className="relative h-16 w-[500px]">
+          <div className="relative h-20 w-[750px]">
             <Image src={logo} alt="Void Corp" fill style={{ objectFit: "contain" }} />
           </div>
         </div>
@@ -100,12 +100,14 @@ export default function Web() {
               description="The forge where ideas are crafted into reality"
               gradient="from-violet-600/20 to-purple-600/20"
               delay={0}
+              navigatesTo="https://v0rn.com"
             />
             <EcosystemCard
               name="Volpio"
               description="Strategic ventures shaping tomorrow"
               gradient="from-fuchsia-600/20 to-pink-600/20"
               delay={0.2}
+              navigatesTo="https://volpio.com"
             />
             <EcosystemCard
               name="Future Entities"
