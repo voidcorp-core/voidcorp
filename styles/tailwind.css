@@ -340,6 +340,10 @@ body {
 
 @keyframes energy-wave {
   0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  20% {
     transform: scale(1);
     opacity: 0.8;
   }
@@ -390,20 +394,20 @@ body {
 }
 
 .animate-ripple {
-  animation: ripple 3s ease-out infinite;
+  animation: ripple 2s ease-out infinite;
   transform-origin: center center;
 }
 
 .animate-ripple-delay {
-  animation: ripple 3s ease-out infinite 1.5s;
+  animation: ripple 2s ease-out infinite 1.5s;
   transform-origin: center center;
 }
 
 .animate-shimmer {
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer 6s ease-in-out infinite;
 }
 
 .animate-energy-wave {
-  animation: energy-wave 4s ease-out infinite;
+  animation: energy-wave 6s ease-out infinite;
   transform-origin: center center;
 }

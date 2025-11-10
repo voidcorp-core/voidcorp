@@ -35,7 +35,7 @@ export function HeroSection({ opacity }: HeroSectionProps) {
           transition={{
             duration: 1.5,
             ease: [0.16, 1, 0.3, 1],
-            scale: { type: "spring", stiffness: 100, damping: 15 }
+            scale: { type: "spring", stiffness: 100, damping: 15 },
           }}
           className="relative"
         >
@@ -184,7 +184,7 @@ export function HeroSection({ opacity }: HeroSectionProps) {
                 delay: 0.8,
                 duration: 0.6,
                 type: "spring",
-                stiffness: 200
+                stiffness: 200,
               }}
             >
               <div className="animate-shimmer h-4 w-4 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,1),0_0_80px_rgba(168,85,247,0.5)]" />
