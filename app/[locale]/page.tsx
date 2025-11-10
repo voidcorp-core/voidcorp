@@ -1,17 +1,20 @@
 "use client"
 
 import { Eye, Hammer, Pen } from "lucide-react"
-
 import { motion, useScroll, useTransform } from "motion/react"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
+
 import logo from "assets/VoidCorp-hor-dark.png"
 import { EcosystemCard } from "components/EcosystemCard"
 import { HeroSection } from "components/HeroSection"
+import { LanguageSwitcher } from "components/LanguageSwitcher"
 
 export default function Web() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const { scrollYProgress } = useScroll()
+  const t = useTranslations()
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3])
 
@@ -25,16 +28,20 @@ export default function Web() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#05030a] text-white">
-      {/* Header with Void Corp Logo */}
+      {/* Header with Void Corp Logo and Language Switcher */}
       <motion.header
         className="fixed top-0 right-0 left-0 z-50 bg-[#05030a]/50 px-8 py-3"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <div className="mx-auto flex max-w-7xl justify-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
+          <div className="flex-1" />
           <div className="relative h-20 w-[750px]">
-            <Image src={logo} alt="Void Corp" fill style={{ objectFit: "contain" }} />
+            <Image src={logo} alt={t("header.logoAlt")} fill style={{ objectFit: "contain" }} />
+          </div>
+          <div className="flex flex-1 justify-end">
+            <LanguageSwitcher />
           </div>
         </div>
       </motion.header>
@@ -67,12 +74,13 @@ export default function Web() {
           >
             <div className="mb-8 inline-block rounded-full border border-violet-500/30 px-4 py-1">
               <span className="tracking-widest text-violet-300/80 uppercase" style={{ fontSize: "0.75rem" }}>
-                Manifesto
+                {t("manifesto.badge")}
               </span>
             </div>
             <p className="mx-auto max-w-3xl leading-relaxed text-gray-300/90" style={{ fontSize: "1.25rem" }}>
-              We believe in <span className="text-violet-300">structured emptiness</span> — a space where precision,
-              art, and iteration converge.
+              {t("manifesto.textBefore")}
+              <span className="text-violet-300">{t("manifesto.structuredEmptiness")}</span>
+              {t("manifesto.textAfter")}
             </p>
           </motion.div>
         </div>
@@ -89,33 +97,25 @@ export default function Web() {
             className="mb-20 text-center"
           >
             <h2 className="font-heading mb-4" style={{ fontSize: "2.5rem" }}>
-              The Ecosystem
+              {t("ecosystem.title")}
             </h2>
-            <p className="text-gray-400">Where innovation takes form</p>
+            <p className="text-gray-400">{t("ecosystem.subtitle")}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <EcosystemCard
-              name="v0rn"
-              description="The forge where ideas are crafted into reality"
+              cardKey="vorn"
               gradient="from-violet-600/20 to-purple-600/20"
               delay={0}
               navigatesTo="https://v0rn.com"
             />
             <EcosystemCard
-              name="Volpio"
-              description="Strategic ventures shaping tomorrow"
+              cardKey="volpio"
               gradient="from-fuchsia-600/20 to-pink-600/20"
               delay={0.2}
               navigatesTo="https://volpio.com"
             />
-            <EcosystemCard
-              name="Future Entities"
-              description="The next chapter awaits in the void"
-              gradient="from-blue-600/20 to-cyan-600/20"
-              delay={0.4}
-              isPlaceholder
-            />
+            <EcosystemCard cardKey="future" gradient="from-blue-600/20 to-cyan-600/20" delay={0.4} isPlaceholder />
           </div>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function Web() {
             className="mb-20 text-center"
           >
             <h2 className="font-heading mb-4" style={{ fontSize: "2.5rem" }}>
-              The Principle
+              {t("principle.title")}
             </h2>
           </motion.div>
 
@@ -150,11 +150,9 @@ export default function Web() {
                 </div>
               </div>
               <h3 className="font-heading mb-3" style={{ fontSize: "1.5rem" }}>
-                Observe
+                {t("principle.observe.title")}
               </h3>
-              <p className="leading-relaxed text-gray-400/90">
-                Study the patterns of creation and understand the forces at play
-              </p>
+              <p className="leading-relaxed text-gray-400/90">{t("principle.observe.description")}</p>
             </motion.div>
 
             {/* Design */}
@@ -171,11 +169,9 @@ export default function Web() {
                 </div>
               </div>
               <h3 className="font-heading mb-3" style={{ fontSize: "1.5rem" }}>
-                Design
+                {t("principle.design.title")}
               </h3>
-              <p className="leading-relaxed text-gray-400/90">
-                Shape the void with intention, precision, and artistic vision
-              </p>
+              <p className="leading-relaxed text-gray-400/90">{t("principle.design.description")}</p>
             </motion.div>
 
             {/* Forge */}
@@ -192,11 +188,9 @@ export default function Web() {
                 </div>
               </div>
               <h3 className="font-heading mb-3" style={{ fontSize: "1.5rem" }}>
-                Forge
+                {t("principle.forge.title")}
               </h3>
-              <p className="leading-relaxed text-gray-400/90">
-                Manifest reality through relentless iteration and mastery
-              </p>
+              <p className="leading-relaxed text-gray-400/90">{t("principle.forge.description")}</p>
             </motion.div>
           </div>
         </div>
@@ -247,7 +241,7 @@ export default function Web() {
               className="mx-auto mt-12 max-w-md text-gray-300/80 italic"
               style={{ fontSize: "1.125rem" }}
             >
-              "In the beginning, there was structure in the void."
+              "{t("signature.quote")}"
             </motion.p>
           </motion.div>
         </div>
@@ -257,7 +251,7 @@ export default function Web() {
       <footer className="relative border-t border-gray-800/50 px-8 py-16">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-gray-500" style={{ fontSize: "0.875rem" }}>
-            © {new Date().getFullYear()} Void Corp — Forged in France
+            © {new Date().getFullYear()} {t("footer.copyright")}
           </p>
         </div>
       </footer>

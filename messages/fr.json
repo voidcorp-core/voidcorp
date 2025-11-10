@@ -1,0 +1,54 @@
+{
+  "header": {
+    "logoAlt": "Void Corp"
+  },
+  "hero": {
+    "badge": "Écosystème parent de Volpio et v0rn",
+    "title": "Là où tout commence.",
+    "description": "Le centre gravitationnel de la création et de l'innovation."
+  },
+  "manifesto": {
+    "badge": "Manifeste",
+    "textBefore": "Nous croyons au ",
+    "structuredEmptiness": "vide structuré",
+    "textAfter": " — un espace où précision, art et itération convergent."
+  },
+  "ecosystem": {
+    "title": "L'Écosystème",
+    "subtitle": "Là où l'innovation prend forme",
+    "vorn": {
+      "name": "v0rn",
+      "description": "La forge où les idées se transforment en réalité"
+    },
+    "volpio": {
+      "name": "Volpio",
+      "description": "Ventures stratégiques façonnant demain"
+    },
+    "future": {
+      "name": "Entités Futures",
+      "description": "Le prochain chapitre attend dans le vide",
+      "comingSoon": "Bientôt"
+    }
+  },
+  "principle": {
+    "title": "Le Principe",
+    "observe": {
+      "title": "Observer",
+      "description": "Étudier les schémas de création et comprendre les forces en jeu"
+    },
+    "design": {
+      "title": "Concevoir",
+      "description": "Façonner le vide avec intention, précision et vision artistique"
+    },
+    "forge": {
+      "title": "Forger",
+      "description": "Manifester la réalité par l'itération incessante et la maîtrise"
+    }
+  },
+  "signature": {
+    "quote": "Au commencement, il y avait de la structure dans le vide."
+  },
+  "footer": {
+    "copyright": "Void Corp — Forgé en France"
+  }
+}

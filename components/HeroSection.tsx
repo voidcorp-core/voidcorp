@@ -1,12 +1,15 @@
 "use client"
 
 import { motion, MotionValue } from "motion/react"
+import { useTranslations } from "next-intl"
 
 interface HeroSectionProps {
   opacity: MotionValue<number>
 }
 
 export function HeroSection({ opacity }: HeroSectionProps) {
+  const t = useTranslations("hero")
+
   return (
     <motion.section
       className="relative flex min-h-screen flex-col items-center justify-center px-8"
@@ -80,7 +83,7 @@ export function HeroSection({ opacity }: HeroSectionProps) {
       >
         <div className="mb-8 inline-block rounded-full border border-violet-500/30 px-4 py-1">
           <span className="tracking-widest text-violet-300/80 uppercase" style={{ fontSize: "0.75rem" }}>
-            Parent ecosystem of Volpio and v0rn
+            {t("badge")}
           </span>
         </div>
 
@@ -88,11 +91,11 @@ export function HeroSection({ opacity }: HeroSectionProps) {
           className="font-heading mb-6 bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent"
           style={{ fontSize: "4.5rem", lineHeight: "1.1" }}
         >
-          Where Everything Begins.
+          {t("title")}
         </h1>
 
         <p className="mx-auto max-w-2xl leading-relaxed text-gray-300/70" style={{ fontSize: "1.25rem" }}>
-          The gravitational center of creation and innovation.
+          {t("description")}
         </p>
       </motion.div>
 

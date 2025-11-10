@@ -1,17 +1,20 @@
 "use client"
 
 import { motion } from "motion/react"
+import { useTranslations } from "next-intl"
 
 interface EcosystemCardProps {
-  name: string
-  description: string
+  cardKey: string
   gradient: string
   delay: number
   isPlaceholder?: boolean
   navigatesTo?: string
 }
 
-export function EcosystemCard({ name, description, gradient, delay, isPlaceholder, navigatesTo }: EcosystemCardProps) {
+export function EcosystemCard({ cardKey, gradient, delay, isPlaceholder, navigatesTo }: EcosystemCardProps) {
+  const t = useTranslations(`ecosystem.${cardKey}`)
+  const tCommon = useTranslations("ecosystem.future")
+
   const content = (
     <>
       {/* Hover glow effect */}
@@ -38,16 +41,16 @@ export function EcosystemCard({ name, description, gradient, delay, isPlaceholde
           className="font-heading mb-3 transition-colors duration-300 group-hover:text-white"
           style={{ fontSize: "1.75rem" }}
         >
-          {name}
+          {t("name")}
         </h3>
-        <p className={`leading-relaxed text-gray-400 ${isPlaceholder ? "italic" : ""}`}>{description}</p>
+        <p className={`leading-relaxed text-gray-400 ${isPlaceholder ? "italic" : ""}`}>{t("description")}</p>
 
         {/* Status indicator for placeholder */}
         {isPlaceholder && (
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gray-700/50 bg-gray-800/30 px-3 py-1">
             <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-gray-500" />
             <span className="text-gray-500" style={{ fontSize: "0.75rem" }}>
-              Coming Soon
+              {tCommon("comingSoon")}
             </span>
           </div>
         )}
