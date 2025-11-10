@@ -8,6 +8,9 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale: "fr",
   localePrefix: "as-needed",
+
+  // Disable automatic locale detection from browser headers
+  localeDetection: false,
 })
 
 export const config = {
