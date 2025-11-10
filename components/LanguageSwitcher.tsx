@@ -31,12 +31,27 @@ export function LanguageSwitcher() {
   }, [isOpen])
 
   const handleLanguageChange = (newLocale: string) => {
+    if (newLocale === locale) {
+      setIsOpen(false)
+      return
+    }
+
     setIsOpen(false)
     startTransition(() => {
-      // Remove the current locale from the pathname
-      const pathnameWithoutLocale = pathname.replace(`/${locale}`, "")
-      const newPath = newLocale === "en" ? pathnameWithoutLocale || "/" : `/${newLocale}${pathnameWithoutLocale}`
+      // Get the path without the current locale prefix
+      let pathWithoutLocale = pathname
+      if (pathname.startsWith(`/${locale}`)) {
+        pathWithoutLocale = pathname.slice(`/${locale}`.length) || "/"
+      } else if (locale === "en" && pathname === "/") {
+        pathWithoutLocale = "/"
+      }
+
+      // Build the new path with the selected locale
+      // Default locale (en) doesn't need prefix due to localePrefix: "as-needed"
+      const newPath = newLocale === "en" ? pathWithoutLocale : `/${newLocale}${pathWithoutLocale}`
+
       router.push(newPath)
+      router.refresh()
     })
   }
 

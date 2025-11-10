@@ -9,8 +9,9 @@
   },
   "manifesto": {
     "badge": "Manifeste",
-    "text": "Nous croyons au {structuredEmptiness} — un espace où précision, art et itération convergent.",
-    "structuredEmptiness": "vide structuré"
+    "textBefore": "Nous croyons au ",
+    "structuredEmptiness": "vide structuré",
+    "textAfter": " — un espace où précision, art et itération convergent."
   },
   "ecosystem": {
     "title": "L'Écosystème",

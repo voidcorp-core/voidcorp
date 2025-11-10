@@ -78,9 +78,9 @@ export default function Web() {
               </span>
             </div>
             <p className="mx-auto max-w-3xl leading-relaxed text-gray-300/90" style={{ fontSize: "1.25rem" }}>
-              {t.rich("manifesto.text", {
-                structuredEmptiness: (chunks) => <span className="text-violet-300">{chunks}</span>,
-              })}
+              {t("manifesto.textBefore")}
+              <span className="text-violet-300">{t("manifesto.structuredEmptiness")}</span>
+              {t("manifesto.textAfter")}
             </p>
           </motion.div>
         </div>

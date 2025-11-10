@@ -9,8 +9,9 @@
   },
   "manifesto": {
     "badge": "Manifesto",
-    "text": "We believe in {structuredEmptiness} — a space where precision, art, and iteration converge.",
-    "structuredEmptiness": "structured emptiness"
+    "textBefore": "We believe in ",
+    "structuredEmptiness": "structured emptiness",
+    "textAfter": " — a space where precision, art, and iteration converge."
   },
   "ecosystem": {
     "title": "The Ecosystem",
