@@ -242,6 +242,7 @@ body {
 
 .animate-glow-pulse {
   animation: glow-pulse 4s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .animate-float {
