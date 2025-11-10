@@ -233,10 +233,10 @@ body {
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: scale(1);
   }
   50% {
-    transform: translateY(-20px);
+    transform: scale(1.08);
   }
 }
 
@@ -283,20 +283,26 @@ body {
 }
 
 @keyframes orbit {
-  from {
-    transform: rotate(0deg) translateX(160px) rotate(0deg);
+  0% {
+    transform: rotate(0deg) translateX(160px) rotate(0deg) scale(1);
   }
-  to {
-    transform: rotate(360deg) translateX(160px) rotate(-360deg);
+  50% {
+    transform: rotate(180deg) translateX(160px) rotate(-180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) translateX(160px) rotate(-360deg) scale(1);
   }
 }
 
 @keyframes orbit-reverse {
-  from {
-    transform: rotate(0deg) translateX(140px) rotate(0deg);
+  0% {
+    transform: rotate(0deg) translateX(140px) rotate(0deg) scale(1);
   }
-  to {
-    transform: rotate(-360deg) translateX(140px) rotate(360deg);
+  50% {
+    transform: rotate(-180deg) translateX(140px) rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(140px) rotate(360deg) scale(1);
   }
 }
 
@@ -344,6 +350,7 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .animate-breathe {
@@ -366,10 +373,12 @@ body {
 
 .animate-orbit {
   animation: orbit 10s linear infinite;
+  transform-origin: center center;
 }
 
 .animate-orbit-reverse {
   animation: orbit-reverse 12s linear infinite;
+  transform-origin: center center;
 }
 
 .animate-ripple {
