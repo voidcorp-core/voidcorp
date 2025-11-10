@@ -233,17 +233,181 @@ body {
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: scale(1);
   }
   50% {
-    transform: translateY(-20px);
+    transform: scale(1.08);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.6;
+  }
+}
+
+@keyframes breathe-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes rotate-reverse {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(160px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) translateX(160px) rotate(-180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) translateX(160px) rotate(-360deg) scale(1);
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(0deg) translateX(140px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-180deg) translateX(140px) rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(140px) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes energy-wave {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
   }
 }
 
 .animate-glow-pulse {
   animation: glow-pulse 4s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-breathe {
+  animation: breathe 5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-breathe-slow {
+  animation: breathe-slow 7s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-rotate-reverse {
+  animation: rotate-reverse 15s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-orbit {
+  animation: orbit 10s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 12s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-ripple {
+  animation: ripple 2s ease-out infinite;
+  transform-origin: center center;
+}
+
+.animate-ripple-delay {
+  animation: ripple 2s ease-out infinite 1.5s;
+  transform-origin: center center;
+}
+
+.animate-shimmer {
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+.animate-energy-wave {
+  animation: energy-wave 6s ease-out infinite;
+  transform-origin: center center;
 }
