@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import { getRequestConfig } from "next-intl/server"
 
 // Can be imported from a shared config
-export const locales = ["en", "fr"] as const
+export const locales = ["fr", "en"] as const
 export type Locale = (typeof locales)[number]
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -11,7 +11,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   // Ensure that a valid locale is used
   if (!locale || !locales.includes(locale as Locale)) {
-    locale = "en"
+    locale = "fr"
   }
 
   return {
