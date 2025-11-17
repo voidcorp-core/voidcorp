@@ -48,7 +48,7 @@
         "/^tailwind/",
         "/^@tailwindcss/",
         "/^lucide-react$/",
-        "/^framer-motion$/",
+        "/^motion$/",
         "/^@radix-ui//"
       ]
     },
@@ -92,5 +92,5 @@
       "matchPackageNames": ["/.*/"]
     }
   ],
-  "ignoreDeps": []
+  "ignoreDeps": ["node"]
 }
