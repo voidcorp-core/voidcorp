@@ -1,14 +1,96 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":dependencyDashboard",
+    ":prHourlyLimit2",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "timezone": "Europe/Paris",
+  "rangeStrategy": "bump",
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["on monday"],
+    "automerge": true
+  },
+  "labels": ["dependencies", "automated"],
+  "schedule": ["on monday and thursday"],
+  "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
-      "enabled": false,
-      "matchPackageNames": ["*"]
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
+      "groupName": "Misc dependencies (patch & minor)",
+      "matchUpdateTypes": ["patch", "minor"],
+      "matchPackageNames": ["/.*/"]
+    },
+    {
+      "groupName": "Core Framework",
+      "separateMajorMinor": true,
+      "labels": ["core"],
+      "matchPackageNames": [
+        "/^next$/",
+        "/^react$/",
+        "/^react-dom$/",
+        "/^@next//"
+      ]
+    },
+    {
+      "groupName": "UI Stack",
+      "labels": ["ui"],
+      "matchPackageNames": [
+        "/^tailwind/",
+        "/^@tailwindcss/",
+        "/^lucide-react$/",
+        "/^framer-motion$/",
+        "/^@radix-ui//"
+      ]
+    },
+    {
+      "groupName": "Testing",
+      "labels": ["test"],
+      "automerge": true,
+      "matchUpdateTypes": ["patch", "minor"],
+      "matchPackageNames": [
+        "/^vitest/",
+        "/^@vitest/",
+        "/^@testing-library/",
+        "/^playwright/"
+      ]
+    },
+    {
+      "groupName": "Linting & Format",
+      "labels": ["lint"],
+      "automerge": true,
+      "matchUpdateTypes": ["patch", "minor"],
+      "matchPackageNames": [
+        "/^eslint/",
+        "/^@typescript-eslint/",
+        "/^prettier/",
+        "/^eslint-/"
+      ]
+    },
+    {
+      "groupName": "Data & Telemetry",
+      "labels": ["data"],
+      "matchPackageNames": [
+        "/^@supabase//",
+        "/^@vercel/otel$/",
+        "/^@opentelemetry//"
+      ]
+    },
+    {
+      "matchCurrentVersion": "!/^0\\./",
+      "matchUpdateTypes": ["pin", "digest", "lockFileMaintenance"],
+      "prPriority": 1,
+      "matchPackageNames": ["/.*/"]
     }
   ],
-  "vulnerabilityAlerts": {
-    "enabled": true
-  },
-  "osvVulnerabilityAlerts": true
+  "ignoreDeps": []
 }
