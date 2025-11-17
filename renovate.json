@@ -1,12 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "packageRules": [
-    {
-      "enabled": false,
-      "matchPackageNames": ["*"]
-    }
-  ],
+  "packageRules": [],
   "vulnerabilityAlerts": {
     "enabled": true
   },
