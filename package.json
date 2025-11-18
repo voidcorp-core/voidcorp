@@ -87,7 +87,7 @@
     "@testing-library/react": "^16.3.0",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/node": "^20.19.25",
-    "@types/react": "^19.2.4",
+    "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "8.46.4",
     "@vitejs/plugin-react": "^4.7.0",
