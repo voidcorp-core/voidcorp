@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
-
 import { EcosystemCard } from "components/EcosystemCard"
 
 export function EcosystemSection() {
@@ -24,10 +23,10 @@ export function EcosystemSection() {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <EcosystemCard
-            cardKey="vorn"
+            cardKey="void factory"
             gradient="from-violet-600/20 to-purple-600/20"
             delay={0}
-            navigatesTo="https://v0rn.com"
+            navigatesTo="https://factory.voidcorp.io"
           />
           <EcosystemCard
             cardKey="volpio"

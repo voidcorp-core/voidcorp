@@ -214,12 +214,12 @@ export function HeroSection({ opacity }: HeroSectionProps) {
             </a>{" "}
             {t("badge.and")}{" "}
             <a
-              href="https://v0rn.com"
+              href="https://factory.voidcorp.io"
               target="_blank"
               rel="noopener noreferrer"
               className="text-violet-300 decoration-violet-300/30 underline-offset-2 transition-colors hover:text-violet-200 hover:decoration-violet-200/50"
             >
-              v0rn
+              void factory
             </a>
           </span>
         </div>

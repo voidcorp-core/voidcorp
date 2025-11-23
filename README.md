@@ -1,6 +1,6 @@
 # Void Corp 🔥
 
-**Void Corp** est la maison mère de **v0rn** @ **volpio**.
+**Void Corp** est la maison mère de **void factory** @ **volpio**.
 Un site vitrine qui exprime la philosophie, le design et l’univers de la marque.
 
 🧱 Stack : Next.js · TailwindCSS · Figma Make
