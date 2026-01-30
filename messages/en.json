@@ -35,7 +35,7 @@
     "volpio": {
       "name": "Volpio",
       "tagline": "The operational arm",
-      "description": "Where projects come to life. Client missions. Internal ventures."
+      "description": "Where projects come to life."
     },
     "future": {
       "name": "Future Entities",
@@ -59,7 +59,7 @@
     }
   },
   "signature": {
-    "quote": "In the beginning, there was structure in the void."
+    "tagline": "The void is not absence. It is possibility."
   },
   "footer": {
     "copyright": "Void Corp — Forged in France",

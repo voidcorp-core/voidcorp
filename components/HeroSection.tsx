@@ -1,11 +1,12 @@
 "use client"
 
 import { motion, useInView } from "motion/react"
+
 import dynamic from "next/dynamic"
 import { useTranslations } from "next-intl"
 import { useRef } from "react"
-
 import { useScrollOpacity } from "components/ScrollOpacityProvider"
+import { HoverBorderGradient } from "components/ui/hover-border-gradient"
 import { useSmoothScroll } from "hooks/useSmoothScroll"
 
 const UnicornScene = dynamic(() => import("unicornstudio-react"), {
@@ -46,21 +47,17 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="z-50 max-w-4xl text-center"
       >
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/15 px-4 py-1.5">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
-          </span>
-          <span className="text-xs font-semibold tracking-widest text-violet-300 uppercase">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5">
+          <span className="text-xs font-semibold tracking-widest text-gray-300 uppercase">
             {t("badge")}
           </span>
         </div>
 
-        <h1 className="font-heading mb-4 bg-linear-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-4xl leading-tight text-transparent sm:text-5xl md:text-7xl">
+        <h1 className="font-heading mb-4 bg-linear-to-r from-white  bg-clip-text text-4xl leading-tight text-transparent sm:text-5xl md:text-7xl">
           {t("title")}
         </h1>
 
-        <p className="font-heading mb-6 text-lg font-semibold tracking-wide text-violet-300/90 sm:text-xl md:text-2xl">
+        <p className="font-heading mb-6 text-lg font-semibold tracking-wide text-white sm:text-xl md:text-2xl">
           {t("subtitle")}
         </p>
 
@@ -68,21 +65,20 @@ export function HeroSection() {
 
         {/* CTAs */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <motion.a
+          <HoverBorderGradient
+            as="a"
             href="https://factory.voidcorp.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+            containerClassName="rounded-full"
+            className="flex items-center gap-2 bg-void-bg px-6 py-3 text-sm font-medium sm:px-8 sm:py-4 sm:text-base"
           >
-            <span className="relative z-10">{t("cta.primary")}</span>
-            <div className="absolute inset-0 bg-linear-to-r from-fuchsia-600 to-violet-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </motion.a>
+            {t("cta.primary")} &rarr;
+          </HoverBorderGradient>
 
           <motion.button
             onClick={() => scrollTo("ecosystem", { offset: 80 })}
-            className="inline-flex items-center justify-center rounded-full border border-violet-500/30 px-6 py-3 text-sm font-medium text-violet-300 transition-all duration-300 hover:border-violet-500/60 hover:bg-violet-500/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

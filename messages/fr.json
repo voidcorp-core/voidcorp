@@ -35,7 +35,7 @@
     "volpio": {
       "name": "Volpio",
       "tagline": "L'opérationnel",
-      "description": "Là où les projets prennent vie. Missions clients. Projets internes."
+      "description": "Là où les projets prennent vie."
     },
     "future": {
       "name": "Entités Futures",
@@ -59,7 +59,7 @@
     }
   },
   "signature": {
-    "quote": "Au commencement, il y avait de la structure dans le vide."
+    "tagline": "Le vide n'est pas l'absence. C'est la possibilité."
   },
   "footer": {
     "copyright": "Void Corp — Forgé en France",

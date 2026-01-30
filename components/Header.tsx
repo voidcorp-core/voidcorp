@@ -27,7 +27,7 @@ export function Header() {
     <motion.header
       className={`fixed top-0 right-0 left-0 z-50 px-8 py-3 transition-all duration-300 ${
         isScrolled
-          ? "bg-void-bg/80 backdrop-blur-md border-b border-violet-500/10"
+          ? "bg-void-bg/80 backdrop-blur-md"
           : "bg-void-bg/50"
       }`}
       initial={{ opacity: 0, y: -20 }}
@@ -36,7 +36,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="hidden flex-1 md:block" />
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-white">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-violet focus:px-4 focus:py-2 focus:text-white">
           Skip to main content
         </a>
         <div className="relative h-12 w-40 md:h-20 md:w-[750px]">
