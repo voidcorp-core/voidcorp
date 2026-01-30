@@ -1,8 +1,11 @@
 "use client"
 
-import { motion, type MotionValue } from "motion/react"
-
+import { motion, type MotionValue, useInView } from "motion/react"
 import { useTranslations } from "next-intl"
+import { useEffect, useRef, useState } from "react"
+import UnicornScene from "unicornstudio-react"
+
+import { useSmoothScroll } from "hooks/useSmoothScroll"
 
 interface HeroSectionProps {
   opacity: MotionValue<number>
@@ -10,188 +13,41 @@ interface HeroSectionProps {
 
 export function HeroSection({ opacity }: HeroSectionProps) {
   const t = useTranslations("hero")
+  const { scrollTo } = useSmoothScroll()
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { amount: 0.1 })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   return (
     <motion.section
-      className="relative flex min-h-screen flex-col items-center justify-center px-8"
+      ref={sectionRef}
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-8 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-32 after:bg-linear-to-b after:from-transparent after:to-void-bg after:z-50"
       style={{ opacity }}
     >
-      {/* Cosmic Energy Core - The Birth of Structure */}
-      <div className="relative mb-16">
-        {/* Outer cosmic energy waves */}
-        <div className="absolute inset-0 -m-40">
-          <div className="animate-energy-wave absolute inset-0 rounded-full bg-gradient-to-br from-violet-600/20 via-fuchsia-600/20 to-blue-600/20 blur-3xl" />
-        </div>
-
-        {/* Ripple effects - waves of creation */}
-        <div className="absolute inset-0">
-          <div className="animate-ripple absolute inset-0 -m-20 rounded-full border border-violet-500/30 blur-sm" />
-          <div className="animate-ripple-delay absolute inset-0 -m-20 rounded-full border border-fuchsia-500/30 blur-sm" />
-        </div>
-
-        {/* Main sphere */}
-        <motion.div
-          initial={{ scale: 0, opacity: 0, rotate: -180 }}
-          animate={{ scale: 1, opacity: 1, rotate: 0 }}
-          transition={{
-            duration: 1.5,
-            ease: [0.16, 1, 0.3, 1],
-            scale: { type: "spring", stiffness: 100, damping: 15 },
-          }}
-          className="relative"
-        >
-          {/* Rotating outer rings - the fabric of space */}
-          <div className="animate-rotate-slow absolute inset-0 h-80 w-80">
-            <svg className="h-full w-full" viewBox="0 0 320 320">
-              <circle
-                cx="160"
-                cy="160"
-                r="155"
-                fill="none"
-                stroke="url(#hero-gradient)"
-                strokeWidth="1"
-                opacity="0.4"
-                strokeDasharray="10 5"
-              />
-              <circle
-                cx="160"
-                cy="160"
-                r="145"
-                fill="none"
-                stroke="url(#hero-gradient-2)"
-                strokeWidth="0.5"
-                opacity="0.3"
-                strokeDasharray="5 10"
-              />
-            </svg>
-          </div>
-
-          {/* Counter-rotating inner rings */}
-          <div className="animate-rotate-reverse absolute inset-0 h-80 w-80">
-            <svg className="h-full w-full" viewBox="0 0 320 320">
-              <circle
-                cx="160"
-                cy="160"
-                r="135"
-                fill="none"
-                stroke="url(#hero-gradient-3)"
-                strokeWidth="0.5"
-                opacity="0.5"
-                strokeDasharray="8 4"
-              />
-            </svg>
-          </div>
-
-          {/* Gradient sphere with multiple breathing layers */}
-          <div className="animate-float relative h-80 w-80 rounded-full">
-            {/* Outermost breathing layer */}
-            <div className="animate-breathe-slow absolute inset-0 rounded-full bg-gradient-to-br from-violet-600/20 via-fuchsia-600/20 to-blue-600/20 blur-3xl" />
-
-            {/* Secondary breathing layer */}
-            <div className="animate-breathe absolute -inset-4 rounded-full bg-gradient-to-br from-violet-600/30 via-fuchsia-600/30 to-blue-600/30 blur-2xl" />
-
-            {/* Inner core - the primordial energy */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-600 via-fuchsia-600 to-blue-600 opacity-40 blur-2xl" />
-
-            {/* Middle layer with shimmer */}
-            <div className="animate-shimmer absolute inset-8 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-blue-500 opacity-50 blur-xl" />
-
-            {/* Stable inner rings */}
-            <svg className="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 320 320">
-              <circle
-                cx="160"
-                cy="160"
-                r="120"
-                fill="none"
-                stroke="url(#hero-gradient)"
-                strokeWidth="1.5"
-                opacity="0.6"
-              />
-              <circle
-                cx="160"
-                cy="160"
-                r="100"
-                fill="none"
-                stroke="url(#hero-gradient)"
-                strokeWidth="1"
-                opacity="0.4"
-              />
-              <defs>
-                <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#a855f7" />
-                  <stop offset="50%" stopColor="#ec4899" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
-                <linearGradient id="hero-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" />
-                  <stop offset="50%" stopColor="#ec4899" />
-                  <stop offset="100%" stopColor="#a855f7" />
-                </linearGradient>
-                <linearGradient id="hero-gradient-3" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ec4899" />
-                  <stop offset="50%" stopColor="#a855f7" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            {/* Orbital particles - matter forming from energy */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="animate-orbit absolute h-2 w-2"
-              >
-                <div className="h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(168,85,247,0.8)]" />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 1 }}
-                className="animate-orbit-reverse absolute h-1.5 w-1.5"
-              >
-                <div className="h-1.5 w-1.5 rounded-full bg-fuchsia-400 shadow-[0_0_8px_rgba(236,72,153,0.8)]" />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.4, duration: 1 }}
-                className="animate-orbit absolute h-1.5 w-1.5"
-                style={{ animationDelay: "5s" }}
-              >
-                <div className="h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.6, duration: 1 }}
-                className="animate-orbit-reverse absolute h-1 w-1"
-                style={{ animationDelay: "3s" }}
-              >
-                <div className="h-1 w-1 rounded-full bg-purple-300 shadow-[0_0_6px_rgba(216,180,254,0.8)]" />
-              </motion.div>
-            </div>
-
-            {/* Center point - the singularity */}
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{
-                delay: 0.8,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-              }}
-            >
-              <div className="animate-shimmer h-4 w-4 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,1),0_0_80px_rgba(168,85,247,0.5)]" />
-            </motion.div>
-          </div>
-        </motion.div>
+      {/* Unicorn Studio Background - disabled on mobile, paused when out of view */}
+      <div className="absolute inset-0 z-10">
+        {!isMobile ? (
+          <UnicornScene
+            projectId="BqS5vTHVEpn6NiF0g8iJ"
+            className="h-full w-full"
+            paused={!isInView}
+            fps={30}
+            dpi={1}
+            scale={0.75}
+            lazyLoad
+          />
+        ) : (
+          <div className="h-full w-full bg-linear-to-br from-violet-950/50 via-void-bg to-fuchsia-950/30" />
+        )}
       </div>
 
       {/* Text content */}
@@ -201,34 +57,49 @@ export function HeroSection({ opacity }: HeroSectionProps) {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="z-50 max-w-4xl text-center"
       >
-        <div className="mb-8 inline-block rounded-full border border-violet-500/30 px-4 py-1">
-          <span className="text-xs tracking-widest text-violet-300/80 uppercase">
-            {t("badge.prefix")}{" "}
-            <a
-              href="https://volpio.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-fuchsia-300 decoration-fuchsia-300/30 underline-offset-2 transition-colors hover:text-fuchsia-200 hover:decoration-fuchsia-200/50"
-            >
-              Volpio
-            </a>{" "}
-            {t("badge.and")}{" "}
-            <a
-              href="https://factory.voidcorp.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-violet-300 decoration-violet-300/30 underline-offset-2 transition-colors hover:text-violet-200 hover:decoration-violet-200/50"
-            >
-              void factory
-            </a>
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/15 px-4 py-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+          </span>
+          <span className="text-xs font-semibold tracking-widest text-violet-300 uppercase">
+            {t("badge")}
           </span>
         </div>
 
-        <h1 className="font-heading mb-6 bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-7xl leading-tight text-transparent">
+        <h1 className="font-heading mb-4 bg-linear-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-7xl leading-tight text-transparent">
           {t("title")}
         </h1>
 
-        <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-300/70">{t("description")}</p>
+        <p className="font-heading mb-6 text-2xl font-semibold tracking-wide text-violet-300/90">
+          {t("subtitle")}
+        </p>
+
+        <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-gray-300/70">{t("description")}</p>
+
+        {/* CTAs */}
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <motion.a
+            href="https://factory.voidcorp.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span className="relative z-10">{t("cta.primary")}</span>
+            <div className="absolute inset-0 bg-linear-to-r from-fuchsia-600 to-violet-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </motion.a>
+
+          <motion.button
+            onClick={() => scrollTo("ecosystem", { offset: 80 })}
+            className="inline-flex items-center justify-center rounded-full border border-violet-500/30 px-8 py-4 font-medium text-violet-300 transition-all duration-300 hover:border-violet-500/60 hover:bg-violet-500/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {t("cta.secondary")}
+          </motion.button>
+        </div>
       </motion.div>
 
       {/* Scroll indicator */}

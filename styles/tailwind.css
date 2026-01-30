@@ -23,6 +23,7 @@
 
 :root {
   --font-size: 16px;
+  --void-bg: #020104;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -100,6 +101,7 @@
 }
 
 @theme inline {
+  --color-void-bg: var(--void-bg);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -410,4 +412,31 @@ body {
 .animate-energy-wave {
   animation: energy-wave 6s ease-out infinite;
   transform-origin: center center;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-pulse,
+  .animate-float,
+  .animate-breathe,
+  .animate-breathe-slow,
+  .animate-rotate-slow,
+  .animate-rotate-reverse,
+  .animate-orbit,
+  .animate-orbit-reverse,
+  .animate-ripple,
+  .animate-ripple-delay,
+  .animate-shimmer,
+  .animate-energy-wave {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

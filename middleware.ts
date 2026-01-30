@@ -15,6 +15,6 @@ export default createMiddleware({
 
 export const config = {
   // Match only internationalized pathnames
-  // Exclude: api, _next, _vercel, ingest (PostHog proxy), and files with extensions
-  matcher: ["/((?!api|_next|_vercel|ingest|.*\\..*).*)"],
+  // Exclude: api, _next, _vercel, and files with extensions
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 }

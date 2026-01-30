@@ -3,29 +3,39 @@
     "logoAlt": "Void Corp"
   },
   "hero": {
-    "badge": {
-      "prefix": "Parent ecosystem of",
-      "and": "and"
-    },
-    "title": "Where Everything Begins.",
-    "description": "The gravitational center of creation and innovation."
+    "badge": "Creative Holding",
+    "title": "From the void, structure emerges.",
+    "subtitle": "Build More. Move Fast. Be Better.",
+    "description": "An ecosystem where ideas become products. Where action takes precedence over perfection.",
+    "cta": {
+      "primary": "Discover the Factory",
+      "secondary": "Explore the ecosystem"
+    }
   },
   "manifesto": {
     "badge": "Manifesto",
-    "textBefore": "We believe in ",
-    "structuredEmptiness": "structured emptiness",
-    "textAfter": " — a space where precision, art, and iteration converge."
+    "quote": "Imperfection that exists beats perfection that doesn't.",
+    "textBefore": "The ",
+    "structuredEmptiness": "structured void",
+    "textAfter": " — a space where each entity finds its purpose.",
+    "principles": {
+      "ship": "From void, clarity",
+      "data": "From structure, autonomy",
+      "kill": "From action, growth"
+    }
   },
   "ecosystem": {
     "title": "The Ecosystem",
     "subtitle": "Where innovation takes form",
     "voidfactory": {
       "name": "Void Factory",
-      "description": "The forge where ideas are crafted into reality"
+      "tagline": "From idea to product. 30 days.",
+      "description": "Every problem deserves a SaaS solution."
     },
     "volpio": {
       "name": "Volpio",
-      "description": "Strategic ventures shaping tomorrow"
+      "tagline": "The operational arm",
+      "description": "Where projects come to life. Client missions. Internal ventures."
     },
     "future": {
       "name": "Future Entities",
@@ -37,21 +47,26 @@
     "title": "The Principle",
     "observe": {
       "title": "Observe",
-      "description": "Study the patterns of creation and understand the forces at play"
+      "description": "See what others miss. Turn noise into signal."
     },
     "design": {
       "title": "Design",
-      "description": "Shape the void with intention, precision, and artistic vision"
+      "description": "Structure potential. Every entity is born with a clear mission."
     },
     "forge": {
       "title": "Forge",
-      "description": "Manifest reality through relentless iteration and mastery"
+      "description": "Build fast, iterate hard. An ecosystem that compounds."
     }
   },
   "signature": {
     "quote": "In the beginning, there was structure in the void."
   },
   "footer": {
-    "copyright": "Void Corp — Forged in France"
+    "copyright": "Void Corp — Forged in France",
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
   }
 }
