@@ -71,13 +71,13 @@ export function EcosystemCard({
   const Icon = icons[cardKey as keyof typeof icons] || Sparkles
 
   const content = (
-    <div className="relative z-10 p-8">
+    <div className="relative z-10 p-5 sm:p-8">
       {/* Header with icon and number */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-5 flex items-center justify-between sm:mb-8">
         <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-void-bg shadow-lg transition-all duration-500 group-hover:scale-110 ${styles.iconBorderHover} ${styles.glowShadow}`}
+          className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-void-bg shadow-lg transition-all duration-500 group-hover:scale-110 sm:h-12 sm:w-12 ${styles.iconBorderHover} ${styles.glowShadow}`}
         >
-          <Icon className={`h-5 w-5 ${styles.iconColor}`} strokeWidth={1.5} />
+          <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${styles.iconColor}`} strokeWidth={1.5} />
         </div>
         <span className={`font-mono text-xs text-zinc-600 transition-colors duration-300 ${styles.numberHover}`}>
           {stepNumber}
@@ -85,7 +85,7 @@ export function EcosystemCard({
       </div>
 
       {/* Title */}
-      <h3 className="mb-3 text-xl font-medium tracking-tight text-white">{t("name")}</h3>
+      <h3 className="mb-2 text-lg font-medium tracking-tight text-white sm:mb-3 sm:text-xl">{t("name")}</h3>
 
       {/* Description */}
       <p className={descriptionVariants({ placeholder: isPlaceholder })}>

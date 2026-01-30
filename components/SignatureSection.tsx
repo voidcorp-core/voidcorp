@@ -7,7 +7,7 @@ export function SignatureSection() {
   const t = useTranslations()
 
   return (
-    <section className="relative px-8 py-32 md:py-56">
+    <section className="relative px-4 py-20 sm:px-8 sm:py-32 md:py-56">
       <div className="mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -19,10 +19,10 @@ export function SignatureSection() {
           {/* Large glowing O */}
           <div className="relative">
             <div className="absolute inset-0 opacity-60 blur-3xl">
-              <div className="mx-auto h-64 w-64 rounded-full bg-linear-to-br from-violet-500 via-fuchsia-500 to-purple-500" />
+              <div className="mx-auto h-40 w-40 rounded-full bg-linear-to-br from-violet-500 via-fuchsia-500 to-purple-500 sm:h-64 sm:w-64" />
             </div>
             <div className="relative">
-              <svg width="256" height="256" viewBox="0 0 256 256" className="mx-auto">
+              <svg width="160" height="160" viewBox="0 0 256 256" className="mx-auto sm:h-64 sm:w-64">
                 <circle
                   cx="128"
                   cy="128"
@@ -48,7 +48,7 @@ export function SignatureSection() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
-            className="mx-auto mt-12 max-w-md text-lg text-violet-200 italic"
+            className="mx-auto mt-8 max-w-md text-base text-violet-200 italic sm:mt-12 sm:text-lg"
           >
             "{t("signature.quote")}"
           </motion.p>

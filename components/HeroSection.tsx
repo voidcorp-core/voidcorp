@@ -1,31 +1,24 @@
 "use client"
 
-import { motion, type MotionValue, useInView } from "motion/react"
+import { motion, useInView } from "motion/react"
+import dynamic from "next/dynamic"
 import { useTranslations } from "next-intl"
-import { useEffect, useRef, useState } from "react"
-import UnicornScene from "unicornstudio-react"
+import { useRef } from "react"
 
+import { useScrollOpacity } from "components/ScrollOpacityProvider"
 import { useSmoothScroll } from "hooks/useSmoothScroll"
 
-interface HeroSectionProps {
-  opacity: MotionValue<number>
-}
+const UnicornScene = dynamic(() => import("unicornstudio-react"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full bg-void-bg" />,
+})
 
-export function HeroSection({ opacity }: HeroSectionProps) {
+export function HeroSection() {
   const t = useTranslations("hero")
   const { scrollTo } = useSmoothScroll()
+  const { opacity } = useScrollOpacity()
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { amount: 0.1 })
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
-    }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
 
   return (
     <motion.section
@@ -33,21 +26,17 @@ export function HeroSection({ opacity }: HeroSectionProps) {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-8 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-32 after:bg-linear-to-b after:from-transparent after:to-void-bg after:z-50"
       style={{ opacity }}
     >
-      {/* Unicorn Studio Background - disabled on mobile, paused when out of view */}
+      {/* Unicorn Studio Background - paused when out of view */}
       <div className="absolute inset-0 z-10">
-        {!isMobile ? (
-          <UnicornScene
-            projectId="BqS5vTHVEpn6NiF0g8iJ"
-            className="h-full w-full"
-            paused={!isInView}
-            fps={30}
-            dpi={1}
-            scale={0.75}
-            lazyLoad
-          />
-        ) : (
-          <div className="h-full w-full bg-linear-to-br from-violet-950/50 via-void-bg to-fuchsia-950/30" />
-        )}
+        <UnicornScene
+          projectId="BqS5vTHVEpn6NiF0g8iJ"
+          className="h-full w-full"
+          paused={!isInView}
+          fps={30}
+          dpi={1}
+          scale={0.75}
+          lazyLoad
+        />
       </div>
 
       {/* Text content */}
@@ -67,15 +56,15 @@ export function HeroSection({ opacity }: HeroSectionProps) {
           </span>
         </div>
 
-        <h1 className="font-heading mb-4 bg-linear-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-7xl leading-tight text-transparent">
+        <h1 className="font-heading mb-4 bg-linear-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-4xl leading-tight text-transparent sm:text-5xl md:text-7xl">
           {t("title")}
         </h1>
 
-        <p className="font-heading mb-6 text-2xl font-semibold tracking-wide text-violet-300/90">
+        <p className="font-heading mb-6 text-lg font-semibold tracking-wide text-violet-300/90 sm:text-xl md:text-2xl">
           {t("subtitle")}
         </p>
 
-        <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-gray-300/70">{t("description")}</p>
+        <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-gray-300/70 sm:text-lg md:text-xl">{t("description")}</p>
 
         {/* CTAs */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -83,7 +72,7 @@ export function HeroSection({ opacity }: HeroSectionProps) {
             href="https://factory.voidcorp.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-violet-600 to-fuchsia-600 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -93,7 +82,7 @@ export function HeroSection({ opacity }: HeroSectionProps) {
 
           <motion.button
             onClick={() => scrollTo("ecosystem", { offset: 80 })}
-            className="inline-flex items-center justify-center rounded-full border border-violet-500/30 px-8 py-4 font-medium text-violet-300 transition-all duration-300 hover:border-violet-500/60 hover:bg-violet-500/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg"
+            className="inline-flex items-center justify-center rounded-full border border-violet-500/30 px-6 py-3 text-sm font-medium text-violet-300 transition-all duration-300 hover:border-violet-500/60 hover:bg-violet-500/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

@@ -26,11 +26,11 @@ export function PhilosophySection() {
           </div>
 
           {/* Main quote */}
-          <blockquote className="font-heading mb-8 text-4xl font-bold text-white md:text-5xl">
+          <blockquote className="font-heading mb-8 text-2xl font-bold text-white sm:text-3xl md:text-5xl">
             "{t("manifesto.quote")}"
           </blockquote>
 
-          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-300/90">
+          <p className="mx-auto mb-12 max-w-3xl text-base leading-relaxed text-gray-300/90 sm:text-lg md:text-xl">
             {t("manifesto.textBefore")}
             <span className="text-violet-400 font-medium">{t("manifesto.structuredEmptiness")}</span>
             {t("manifesto.textAfter")}

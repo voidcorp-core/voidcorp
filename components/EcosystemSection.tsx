@@ -8,20 +8,20 @@ export function EcosystemSection() {
   const t = useTranslations()
 
   return (
-    <section id="ecosystem" className="relative px-8 py-24 scroll-mt-24 md:py-48">
+    <section id="ecosystem" className="relative px-4 py-16 scroll-mt-24 sm:px-8 sm:py-24 md:py-48">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-20 text-center"
+          className="mb-12 text-center sm:mb-20"
         >
-          <h2 className="font-heading mb-4 text-4xl">{t("ecosystem.title")}</h2>
-          <p className="text-gray-400">{t("ecosystem.subtitle")}</p>
+          <h2 className="font-heading mb-4 text-2xl sm:text-3xl md:text-4xl">{t("ecosystem.title")}</h2>
+          <p className="text-sm text-gray-400 sm:text-base">{t("ecosystem.subtitle")}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
           <EcosystemCard
             cardKey="voidfactory"
             accentColor="blue"
