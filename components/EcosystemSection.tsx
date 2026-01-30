@@ -8,7 +8,7 @@ export function EcosystemSection() {
   const t = useTranslations()
 
   return (
-    <section className="relative px-8 py-32">
+    <section id="ecosystem" className="relative px-8 py-24 scroll-mt-24 md:py-48">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0 }}
@@ -21,20 +21,22 @@ export function EcosystemSection() {
           <p className="text-gray-400">{t("ecosystem.subtitle")}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <EcosystemCard
             cardKey="voidfactory"
-            gradient="from-violet-600/20 to-purple-600/20"
+            accentColor="blue"
             delay={0}
+            stepNumber="01"
             navigatesTo="https://factory.voidcorp.io"
           />
           <EcosystemCard
             cardKey="volpio"
-            gradient="from-fuchsia-600/20 to-pink-600/20"
+            accentColor="orange"
             delay={0.2}
+            stepNumber="02"
             navigatesTo="https://volpio.com"
           />
-          <EcosystemCard cardKey="future" gradient="from-blue-600/20 to-cyan-600/20" delay={0.4} isPlaceholder />
+          <EcosystemCard cardKey="future" accentColor="purple" delay={0.4} stepNumber="03" isPlaceholder />
         </div>
       </div>
     </section>

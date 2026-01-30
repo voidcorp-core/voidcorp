@@ -13,20 +13,7 @@ const config: NextConfig = {
       fullUrl: true,
     },
   },
-  // This is required to support PostHog trailing slash API requests
-  skipTrailingSlashRedirect: true,
   rewrites: async () => ({
-    beforeFiles: [
-      // PostHog proxy rewrites - must be in beforeFiles to work correctly
-      {
-        source: "/ingest/static/:path*",
-        destination: "https://eu-assets.i.posthog.com/static/:path*",
-      },
-      {
-        source: "/ingest/:path*",
-        destination: "https://eu.i.posthog.com/:path*",
-      },
-    ],
     afterFiles: [
       { source: "/healthz", destination: "/api/health" },
       { source: "/api/healthz", destination: "/api/health" },

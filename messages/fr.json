@@ -3,29 +3,39 @@
     "logoAlt": "Void Corp"
   },
   "hero": {
-    "badge": {
-      "prefix": "Écosystème parent de",
-      "and": "et"
-    },
-    "title": "Là où tout commence.",
-    "description": "Le centre gravitationnel de la création et de l'innovation."
+    "badge": "Holding créative",
+    "title": "Du vide naît la structure.",
+    "subtitle": "Build More. Move Fast. Be Better.",
+    "description": "Un écosystème où les idées deviennent des produits. Où l'action prime sur la perfection.",
+    "cta": {
+      "primary": "Découvrir la Factory",
+      "secondary": "Explorer l'écosystème"
+    }
   },
   "manifesto": {
     "badge": "Manifeste",
-    "textBefore": "Nous croyons au ",
+    "quote": "L'imperfection qui existe bat la perfection qui n'existe pas.",
+    "textBefore": "Le ",
     "structuredEmptiness": "vide structuré",
-    "textAfter": " — un espace où précision, art et itération convergent."
+    "textAfter": " — un espace où chaque entité trouve sa raison d'être.",
+    "principles": {
+      "ship": "Du vide, la clarté",
+      "data": "De la structure, l'autonomie",
+      "kill": "De l'action, la croissance"
+    }
   },
   "ecosystem": {
     "title": "L'Écosystème",
     "subtitle": "Là où l'innovation prend forme",
     "voidfactory": {
       "name": "Void Factory",
-      "description": "La forge où les idées se transforment en réalité"
+      "tagline": "De l'idée au produit. 30 jours.",
+      "description": "À chaque problème, une solution SaaS."
     },
     "volpio": {
       "name": "Volpio",
-      "description": "Ventures stratégiques façonnant demain"
+      "tagline": "L'opérationnel",
+      "description": "Là où les projets prennent vie. Missions clients. Projets internes."
     },
     "future": {
       "name": "Entités Futures",
@@ -37,21 +47,26 @@
     "title": "Le Principe",
     "observe": {
       "title": "Observer",
-      "description": "Étudier les schémas de création et comprendre les forces en jeu"
+      "description": "Voir ce que d'autres ignorent. Transformer le bruit en signal."
     },
     "design": {
       "title": "Concevoir",
-      "description": "Façonner le vide avec intention, précision et vision artistique"
+      "description": "Structurer le potentiel. Chaque entité naît avec une mission claire."
     },
     "forge": {
       "title": "Forger",
-      "description": "Manifester la réalité par l'itération incessante et la maîtrise"
+      "description": "Bâtir vite, itérer fort. Un écosystème qui se renforce."
     }
   },
   "signature": {
     "quote": "Au commencement, il y avait de la structure dans le vide."
   },
   "footer": {
-    "copyright": "Void Corp — Forgé en France"
+    "copyright": "Void Corp — Forgé en France",
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
   }
 }

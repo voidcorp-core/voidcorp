@@ -2,7 +2,6 @@
 
 import { useScroll, useTransform } from "motion/react"
 
-import { CosmicBackground } from "components/CosmicBackground"
 import { EcosystemSection } from "components/EcosystemSection"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
@@ -16,14 +15,15 @@ export default function Web() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3])
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#05030a] text-white">
+    <div className="relative min-h-screen bg-void-bg text-white">
       <Header />
-      <CosmicBackground />
-      <HeroSection opacity={opacity} />
-      <PhilosophySection />
-      <EcosystemSection />
-      <PrincipleSection />
-      <SignatureSection />
+      <main id="main-content" className="relative z-10">
+        <HeroSection opacity={opacity} />
+        <PhilosophySection />
+        <EcosystemSection />
+        <PrincipleSection />
+        <SignatureSection />
+      </main>
       <Footer />
     </div>
   )

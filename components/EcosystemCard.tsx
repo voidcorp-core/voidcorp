@@ -1,10 +1,12 @@
 "use client"
 
 import { cva } from "class-variance-authority"
+import { Factory, Flame, Sparkles } from "lucide-react"
+
 import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
 
-const descriptionVariants = cva("leading-relaxed text-gray-400", {
+const descriptionVariants = cva("text-sm text-zinc-400 font-light leading-relaxed", {
   variants: {
     placeholder: {
       true: "italic",
@@ -18,52 +20,78 @@ const descriptionVariants = cva("leading-relaxed text-gray-400", {
 
 interface EcosystemCardProps {
   cardKey: string
-  gradient: string
+  accentColor: "blue" | "orange" | "purple"
   delay: number
+  stepNumber: string
   isPlaceholder?: boolean
   navigatesTo?: string
 }
 
-export function EcosystemCard({ cardKey, gradient, delay, isPlaceholder, navigatesTo }: EcosystemCardProps) {
+const accentStyles = {
+  blue: {
+    hoverBorder: "group-hover:border-blue-500/30",
+    iconColor: "text-blue-400",
+    iconBorderHover: "group-hover:border-blue-500/40",
+    numberHover: "group-hover:text-blue-500/60",
+    glowShadow: "group-hover:shadow-[0_0_12px_rgba(59,130,246,0.6)]",
+  },
+  orange: {
+    hoverBorder: "group-hover:border-orange-500/30",
+    iconColor: "text-orange-400",
+    iconBorderHover: "group-hover:border-orange-500/40",
+    numberHover: "group-hover:text-orange-500/60",
+    glowShadow: "group-hover:shadow-[0_0_12px_rgba(249,115,22,0.6)]",
+  },
+  purple: {
+    hoverBorder: "group-hover:border-violet-500/30",
+    iconColor: "text-violet-400",
+    iconBorderHover: "group-hover:border-violet-500/40",
+    numberHover: "group-hover:text-violet-500/60",
+    glowShadow: "group-hover:shadow-[0_0_12px_rgba(139,92,246,0.6)]",
+  },
+}
+
+const icons = {
+  voidfactory: Factory,
+  volpio: Flame,
+  future: Sparkles,
+}
+
+export function EcosystemCard({
+  cardKey,
+  accentColor,
+  delay,
+  stepNumber,
+  isPlaceholder,
+  navigatesTo,
+}: EcosystemCardProps) {
   const t = useTranslations(`ecosystem.${cardKey}`)
   const tCommon = useTranslations("ecosystem.future")
+  const styles = accentStyles[accentColor]
+  const Icon = icons[cardKey as keyof typeof icons] || Sparkles
 
   const content = (
-    <>
-      {/* Hover glow effect */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100`}
-      />
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Glowing sphere */}
-        <div className="mb-8">
-          <div className="relative h-20 w-20">
-            <div
-              className={`absolute inset-0 rounded-full bg-gradient-to-br ${gradient} opacity-60 blur-xl transition-opacity duration-500 group-hover:opacity-100`}
-            />
-            <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-gray-700/50 bg-gradient-to-br from-gray-800/80 to-gray-900/80 transition-all duration-500 group-hover:border-gray-600/80">
-              <div className="h-2 w-2 rounded-full bg-white/80 shadow-[0_0_20px_rgba(255,255,255,0.6)]" />
-            </div>
-          </div>
+    <div className="relative z-10 p-8">
+      {/* Header with icon and number */}
+      <div className="mb-8 flex items-center justify-between">
+        <div
+          className={`flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-void-bg shadow-lg transition-all duration-500 group-hover:scale-110 ${styles.iconBorderHover} ${styles.glowShadow}`}
+        >
+          <Icon className={`h-5 w-5 ${styles.iconColor}`} strokeWidth={1.5} />
         </div>
-
-        {/* Text */}
-        <h3 className="font-heading mb-3 text-3xl transition-colors duration-300 group-hover:text-white">
-          {t("name")}
-        </h3>
-        <p className={descriptionVariants({ placeholder: isPlaceholder })}>{t("description")}</p>
-
-        {/* Status indicator for placeholder */}
-        {isPlaceholder && (
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gray-700/50 bg-gray-800/30 px-3 py-1">
-            <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-gray-500" />
-            <span className="text-xs text-gray-500">{tCommon("comingSoon")}</span>
-          </div>
-        )}
+        <span className={`font-mono text-xs text-zinc-600 transition-colors duration-300 ${styles.numberHover}`}>
+          {stepNumber}
+        </span>
       </div>
-    </>
+
+      {/* Title */}
+      <h3 className="mb-3 text-xl font-medium tracking-tight text-white">{t("name")}</h3>
+
+      {/* Description */}
+      <p className={descriptionVariants({ placeholder: isPlaceholder })}>
+        {isPlaceholder ? tCommon("description") : t("description")}
+      </p>
+    </div>
   )
 
   return (
@@ -72,10 +100,12 @@ export function EcosystemCard({ cardKey, gradient, delay, isPlaceholder, navigat
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      whileHover={{ y: -8 }}
-      className="group relative"
+      className="group relative h-full"
     >
-      <div className="relative h-full overflow-hidden rounded-2xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-8 backdrop-blur-sm transition-all duration-500 group-hover:border-gray-700/80">
+      {/* Card container */}
+      <div
+        className={`relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/3 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-white/10 group-hover:border-white/5 ${styles.hoverBorder}`}
+      >
         {navigatesTo ? (
           <a href={navigatesTo} target="_blank" rel="noopener noreferrer" className="block h-full">
             {content}
