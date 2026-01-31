@@ -1,53 +1,34 @@
 "use client"
 
-import { cva } from "class-variance-authority"
 import { Factory, Flame, Sparkles } from "lucide-react"
 
 import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
-
-const descriptionVariants = cva("text-sm text-zinc-400 font-light leading-relaxed", {
-  variants: {
-    placeholder: {
-      true: "italic",
-      false: "",
-    },
-  },
-  defaultVariants: {
-    placeholder: false,
-  },
-})
+import { DottedGlowBackground } from "components/ui/dotted-glow-background"
 
 interface EcosystemCardProps {
   cardKey: string
   accentColor: "blue" | "orange" | "purple"
   delay: number
-  stepNumber: string
   isPlaceholder?: boolean
   navigatesTo?: string
 }
 
 const accentStyles = {
   blue: {
-    hoverBorder: "group-hover:border-blue-500/30",
-    iconColor: "text-blue-400",
-    iconBorderHover: "group-hover:border-blue-500/40",
-    numberHover: "group-hover:text-blue-500/60",
-    glowShadow: "group-hover:shadow-[0_0_12px_rgba(59,130,246,0.6)]",
+    glowColor: "rgba(66, 1, 211, 0.85)",
+    hoverGlow: "hover:shadow-[0_0_40px_rgba(66,1,211,0.5)]",
+    titleHover: "group-hover:text-brand-violet",
   },
   orange: {
-    hoverBorder: "group-hover:border-orange-500/30",
-    iconColor: "text-orange-400",
-    iconBorderHover: "group-hover:border-orange-500/40",
-    numberHover: "group-hover:text-orange-500/60",
-    glowShadow: "group-hover:shadow-[0_0_12px_rgba(249,115,22,0.6)]",
+    glowColor: "rgba(255, 75, 196, 0.85)",
+    hoverGlow: "hover:shadow-[0_0_40px_rgba(255,75,196,0.5)]",
+    titleHover: "group-hover:text-brand-pink",
   },
   purple: {
-    hoverBorder: "group-hover:border-violet-500/30",
-    iconColor: "text-violet-400",
-    iconBorderHover: "group-hover:border-violet-500/40",
-    numberHover: "group-hover:text-violet-500/60",
-    glowShadow: "group-hover:shadow-[0_0_12px_rgba(139,92,246,0.6)]",
+    glowColor: "rgba(167, 139, 250, 0.85)",
+    hoverGlow: "hover:shadow-[0_0_40px_rgba(167,139,250,0.5)]",
+    titleHover: "group-hover:text-[#a78bfa]",
   },
 }
 
@@ -61,7 +42,6 @@ export function EcosystemCard({
   cardKey,
   accentColor,
   delay,
-  stepNumber,
   isPlaceholder,
   navigatesTo,
 }: EcosystemCardProps) {
@@ -71,47 +51,59 @@ export function EcosystemCard({
   const Icon = icons[cardKey as keyof typeof icons] || Sparkles
 
   const content = (
-    <div className="relative z-10 p-8">
-      {/* Header with icon and number */}
-      <div className="mb-8 flex items-center justify-between">
-        <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-void-bg shadow-lg transition-all duration-500 group-hover:scale-110 ${styles.iconBorderHover} ${styles.glowShadow}`}
-        >
-          <Icon className={`h-5 w-5 ${styles.iconColor}`} strokeWidth={1.5} />
-        </div>
-        <span className={`font-mono text-xs text-zinc-600 transition-colors duration-300 ${styles.numberHover}`}>
-          {stepNumber}
-        </span>
+    <>
+      {/* Icon centered */}
+      <div className="absolute inset-0 z-20 m-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-lg sm:h-16 sm:w-16">
+        <Icon className="h-6 w-6 text-void-bg sm:h-8 sm:w-8" strokeWidth={1.5} />
       </div>
 
-      {/* Title */}
-      <h3 className="mb-3 text-xl font-medium tracking-tight text-white">{t("name")}</h3>
+      {/* Bottom info bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 flex w-full justify-between px-4 py-3 backdrop-blur-[2px]">
+        <div>
+          <h3 className={`text-sm font-medium text-white transition-colors duration-300 sm:text-base ${styles.titleHover}`}>{t("name")}</h3>
+          <p className={`text-xs text-neutral-400 ${isPlaceholder ? "italic" : ""}`}>
+            {isPlaceholder ? tCommon("description") : t("description")}
+          </p>
+        </div>
+        {navigatesTo && (
+          <span className="text-sm text-neutral-400 self-center">&rarr;</span>
+        )}
+      </div>
 
-      {/* Description */}
-      <p className={descriptionVariants({ placeholder: isPlaceholder })}>
-        {isPlaceholder ? tCommon("description") : t("description")}
-      </p>
-    </div>
+      {/* Dotted glow background */}
+      <DottedGlowBackground
+        className="pointer-events-none mask-radial-to-90% mask-radial-at-center"
+        opacity={1}
+        gap={10}
+        radius={1.6}
+        colorDarkVar="--color-neutral-500"
+        glowColorDarkVar={accentColor === "blue" ? "--color-brand-violet" : accentColor === "orange" ? "--color-brand-pink" : "--color-violet-400"}
+        backgroundOpacity={0}
+        speedMin={0.3}
+        speedMax={1.6}
+        speedScale={1}
+        darkGlowColor={styles.glowColor}
+      />
+    </>
   )
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, delay: delay * 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       viewport={{ once: true }}
-      className="group relative h-full"
+      className={`group relative rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl transition-all duration-300 hover:scale-[1.02] ${styles.hoverGlow}`}
     >
-      {/* Card container */}
-      <div
-        className={`relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/3 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-white/10 group-hover:border-white/5 ${styles.hoverBorder}`}
-      >
+      <div className="relative flex aspect-square items-end justify-end overflow-hidden rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl border border-white/10 ring-1 ring-white/5 transition-all duration-300 group-hover:border-white/20">
         {navigatesTo ? (
-          <a href={navigatesTo} target="_blank" rel="noopener noreferrer" className="block h-full">
+          <a href={navigatesTo} target="_blank" rel="noopener noreferrer" className="flex h-full w-full flex-col">
             {content}
           </a>
         ) : (
-          <div className="h-full">{content}</div>
+          <div className="flex h-full w-full flex-col">
+            {content}
+          </div>
         )}
       </div>
     </motion.div>
