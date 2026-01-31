@@ -1,6 +1,7 @@
 import "styles/tailwind.css"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 
@@ -131,6 +132,12 @@ export default async function RootLayout({
         <JsonLd />
       </head>
       <body>
+        <Script
+          defer
+          src="https://umami.volpionas.synology.me/u.js"
+          data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
+          strategy="afterInteractive"
+        />
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
