@@ -134,7 +134,7 @@ export default async function RootLayout({
       <body>
         <Script
           defer
-          src="https://umami.volpionas.synology.me/u.js"
+          src="https://umami.voidcorp.io/u.js"
           data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
           strategy="afterInteractive"
         />
