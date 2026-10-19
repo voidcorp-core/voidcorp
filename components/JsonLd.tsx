@@ -9,7 +9,7 @@ export function JsonLd() {
     url: baseUrl,
     logo: `${baseUrl}/VoidCorp-onlyvoid-dark.png`,
     description:
-      "Holding créative de l'écosystème Volpio et Void Factory. Nous construisons des SaaS, même imparfaits.",
+      "Holding créative. Conseille avec Volpio et construit ses propres produits, listés avec leur statut réel.",
     foundingDate: "2024",
     foundingLocation: {
       "@type": "Place",
@@ -38,13 +38,7 @@ export function JsonLd() {
         "@type": "Organization",
         name: "Volpio",
         url: "https://volpio.com",
-        description: "Ventures stratégiques façonnant demain",
-      },
-      {
-        "@type": "Organization",
-        name: "Void Factory",
-        url: "https://factory.voidcorp.io",
-        description: "La forge où les idées se transforment en MVP",
+        description: "Conseil et opérations.",
       },
     ],
   }

@@ -8,7 +8,7 @@
     "subtitle": "Build More. Move Fast. Be Better.",
     "description": "An ecosystem where ideas become products. Where action takes precedence over perfection.",
     "cta": {
-      "primary": "Discover the Factory",
+      "primary": "See the projects",
       "secondary": "Explore the ecosystem"
     }
   },
@@ -27,20 +27,20 @@
   "ecosystem": {
     "title": "The Ecosystem",
     "subtitle": "Where innovation takes form",
-    "voidfactory": {
-      "name": "Void Factory",
-      "tagline": "From idea to product. 30 days.",
-      "description": "Every problem deserves a SaaS solution."
-    },
     "volpio": {
       "name": "Volpio",
-      "tagline": "The operational arm",
-      "description": "Where projects come to life."
+      "tagline": "Consulting and operations",
+      "description": "Intelligence in motion."
     },
-    "future": {
-      "name": "Future Entities",
-      "description": "The next chapter awaits in the void",
-      "comingSoon": "Coming Soon"
+    "projects": {
+      "name": "Projects",
+      "tagline": "What comes out of the Void Factory",
+      "description": "Everything Void Corp has started, including what was stopped."
+    },
+    "investments": {
+      "name": "Investments",
+      "tagline": "Beyond our walls",
+      "description": "Void Corp invests in Blast, the startup investment club."
     }
   },
   "principle": {
@@ -67,6 +67,50 @@
       "linkedin": "LinkedIn",
       "twitter": "Twitter",
       "github": "GitHub"
+    }
+  },
+  "projects": {
+    "metaTitle": "Projects",
+    "metaDescription": "Void Corp's projects with their real status: live, in build, internal, under consideration or stopped.",
+    "badge": "Projects",
+    "title": "What we build.",
+    "lead": "Products born at Void Corp, made in the Void Factory: an idea, a prototype, then a decision, keep going or stop. Every project is listed with its real status, including the ones that were stopped.",
+    "open": "Open",
+    "noAddress": "No public address",
+    "back": "Back to home",
+    "status": {
+      "live": "Live",
+      "building": "In build",
+      "internal": "Internal",
+      "reflection": "Under consideration",
+      "stopped": "Stopped"
+    },
+    "entries": {
+      "atlas": {
+        "nature": "Product",
+        "summary": "A guided interview that hands you a map of where you stand and one next step. Free, no account."
+      },
+      "solaar": {
+        "nature": "Product, born at Void Corp",
+        "summary": "A relationship companion that keeps every professional connection alive: capture, understand, maintain."
+      },
+      "partnership": {
+        "name": "Confidential project",
+        "nature": "In partnership",
+        "summary": "A project built in partnership, currently in build. Details stay confidential for now."
+      },
+      "nexus": {
+        "nature": "Internal tool",
+        "summary": "The holding's steering desk. Internal use only."
+      },
+      "root": {
+        "nature": "Project",
+        "summary": "The root project. Under consideration."
+      },
+      "nebulabox": {
+        "nature": "Product",
+        "summary": "Shared gift lists where reservations stay hidden from the organiser. Taken to beta, then stopped."
+      }
     }
   }
 }

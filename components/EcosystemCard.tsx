@@ -1,17 +1,18 @@
 "use client"
 
-import { Factory, Flame, Sparkles } from "lucide-react"
+import { Flame, FolderKanban, Handshake } from "lucide-react"
 
 import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/navigation"
 import { DottedGlowBackground } from "components/ui/dotted-glow-background"
 
 interface EcosystemCardProps {
-  cardKey: string
+  cardKey: keyof typeof icons
   accentColor: "blue" | "orange" | "purple"
   delay: number
-  isPlaceholder?: boolean
-  navigatesTo?: string
+  // An internal destination stays in the site and its locale; an external one opens a new tab.
+  destination?: { kind: "internal"; href: "/projets" } | { kind: "external"; href: `https://${string}` }
 }
 
 const accentStyles = {
@@ -33,22 +34,20 @@ const accentStyles = {
 }
 
 const icons = {
-  voidfactory: Factory,
+  projects: FolderKanban,
   volpio: Flame,
-  future: Sparkles,
+  investments: Handshake,
 }
 
 export function EcosystemCard({
   cardKey,
   accentColor,
   delay,
-  isPlaceholder,
-  navigatesTo,
+  destination,
 }: EcosystemCardProps) {
   const t = useTranslations(`ecosystem.${cardKey}`)
-  const tCommon = useTranslations("ecosystem.future")
   const styles = accentStyles[accentColor]
-  const Icon = icons[cardKey as keyof typeof icons] || Sparkles
+  const Icon = icons[cardKey]
 
   const content = (
     <>
@@ -61,11 +60,11 @@ export function EcosystemCard({
       <div className="absolute bottom-0 left-0 right-0 z-20 flex w-full justify-between px-4 py-3 backdrop-blur-[2px]">
         <div>
           <h3 className={`text-sm font-medium text-white transition-colors duration-300 sm:text-base ${styles.titleHover}`}>{t("name")}</h3>
-          <p className={`text-xs text-neutral-400 ${isPlaceholder ? "italic" : ""}`}>
-            {isPlaceholder ? tCommon("description") : t("description")}
+          <p className="text-xs text-neutral-400">
+            {t("description")}
           </p>
         </div>
-        {navigatesTo && (
+        {destination && (
           <span className="text-sm text-neutral-400 self-center">&rarr;</span>
         )}
       </div>
@@ -96,8 +95,12 @@ export function EcosystemCard({
       className={`group relative rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl transition-all duration-300 hover:scale-[1.02] ${styles.hoverGlow}`}
     >
       <div className="relative flex aspect-square items-end justify-end overflow-hidden rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl border border-white/10 ring-1 ring-white/5 transition-all duration-300 group-hover:border-white/20">
-        {navigatesTo ? (
-          <a href={navigatesTo} target="_blank" rel="noopener noreferrer" className="flex h-full w-full flex-col">
+        {destination?.kind === "internal" ? (
+          <Link href={destination.href} className="flex h-full w-full flex-col">
+            {content}
+          </Link>
+        ) : destination?.kind === "external" ? (
+          <a href={destination.href} target="_blank" rel="noopener noreferrer" className="flex h-full w-full flex-col">
             {content}
           </a>
         ) : (
