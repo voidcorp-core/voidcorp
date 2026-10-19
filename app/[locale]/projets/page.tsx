@@ -8,6 +8,7 @@ import atlasPreview from "assets/projects/atlas.webp"
 import solaarPreview from "assets/projects/solaar.webp"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
+import { umamiEvent } from "lib/analytics"
 import { hostOf, type Project, PROJECTS, type ProjectSlug, type ProjectStatus } from "lib/registry"
 import { pageMetadata } from "lib/site"
 
@@ -98,6 +99,7 @@ async function FeaturedCard({ project }: { project: FeaturedProject }) {
         <p className="mt-4 flex-1 text-base leading-relaxed text-gray-300/80">{t(`entries.${project.slug}.summary`)}</p>
         <a
           href={project.url}
+          {...umamiEvent("project-open", { project: project.slug, placement: "featured" })}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex min-h-11 items-center gap-2 self-start rounded-full border border-white/20 bg-white/5 px-5 text-sm font-medium transition-colors duration-300 after:absolute after:inset-0 hover:border-white/40 hover:bg-white/10"
@@ -134,6 +136,7 @@ async function ProjectRow({ project }: { project: Project }) {
         {project.url ? (
           <a
             href={project.url}
+            {...umamiEvent("project-open", { project: project.slug, placement: "list" })}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 text-sm font-medium transition-colors duration-300 hover:border-white/40 hover:bg-white/10"
