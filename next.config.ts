@@ -13,6 +13,15 @@ const config: NextConfig = {
       fullUrl: true,
     },
   },
+  // factory.voidcorp.io was folded into /projets; the old host keeps working for every inbound link.
+  redirects: async () => [
+    {
+      source: "/:path*",
+      has: [{ type: "host", value: "factory.voidcorp.io" }],
+      destination: "https://voidcorp.io/projets",
+      permanent: true,
+    },
+  ],
   rewrites: async () => ({
     afterFiles: [
       { source: "/healthz", destination: "/api/health" },

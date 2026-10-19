@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useRef, useState } from "react"
 
+import { Link } from "@/navigation"
 import logo from "assets/VoidCorp-hor-dark.png"
 import { LanguageSwitcher } from "components/LanguageSwitcher"
 
@@ -39,9 +40,9 @@ export function Header() {
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-violet focus:px-4 focus:py-2 focus:text-white">
           Skip to main content
         </a>
-        <div className="relative h-12 w-40 md:h-20 md:w-[750px]">
+        <Link href="/" className="relative h-12 w-40 md:h-20 md:w-[750px]">
           <Image src={logo} alt={t("header.logoAlt")} fill className="object-contain" priority />
-        </div>
+        </Link>
         <nav aria-label="Language selection" className="flex flex-1 justify-end">
           <LanguageSwitcher />
         </nav>

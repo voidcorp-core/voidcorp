@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react"
 import dynamic from "next/dynamic"
 import { useTranslations } from "next-intl"
 import { useRef } from "react"
+import { Link } from "@/navigation"
 import { useScrollOpacity } from "components/ScrollOpacityProvider"
 import { HoverBorderGradient } from "components/ui/hover-border-gradient"
 import { useSmoothScroll } from "hooks/useSmoothScroll"
@@ -66,10 +67,8 @@ export function HeroSection() {
         {/* CTAs */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <HoverBorderGradient
-            as="a"
-            href="https://factory.voidcorp.io"
-            target="_blank"
-            rel="noopener noreferrer"
+            as={Link}
+            href="/projets"
             containerClassName="rounded-full"
             className="flex items-center gap-2 bg-void-bg px-6 py-3 text-sm font-medium sm:px-8 sm:py-4 sm:text-base"
           >

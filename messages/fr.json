@@ -8,7 +8,7 @@
     "subtitle": "Build More. Move Fast. Be Better.",
     "description": "Un écosystème où les idées deviennent des produits. Où l'action prime sur la perfection.",
     "cta": {
-      "primary": "Découvrir la Factory",
+      "primary": "Voir les projets",
       "secondary": "Explorer l'écosystème"
     }
   },
@@ -27,20 +27,20 @@
   "ecosystem": {
     "title": "L'Écosystème",
     "subtitle": "Là où l'innovation prend forme",
-    "voidfactory": {
-      "name": "Void Factory",
-      "tagline": "De l'idée au produit. 30 jours.",
-      "description": "À chaque problème, une solution SaaS."
-    },
     "volpio": {
       "name": "Volpio",
-      "tagline": "L'opérationnel",
-      "description": "Là où les projets prennent vie."
+      "tagline": "Conseil et opérations",
+      "description": "L'intelligence en mouvement."
     },
-    "future": {
-      "name": "Entités Futures",
-      "description": "Le prochain chapitre attend dans le vide",
-      "comingSoon": "Bientôt"
+    "projects": {
+      "name": "Projets",
+      "tagline": "Ce qui sort de la Void Factory",
+      "description": "Tout ce que Void Corp a lancé, y compris ce qui a été arrêté."
+    },
+    "investments": {
+      "name": "Participations",
+      "tagline": "Hors de nos murs",
+      "description": "Void Corp investit dans Blast, le club d'investissement en startups."
     }
   },
   "principle": {
@@ -68,5 +68,51 @@
       "twitter": "Twitter",
       "github": "GitHub"
     }
+  },
+  "projects": {
+    "metaTitle": "Projets",
+    "metaDescription": "Les projets de Void Corp avec leur statut réel : en ligne, en construction, interne, en réflexion ou arrêté.",
+    "badge": "Projets",
+    "title": "Ce que nous construisons.",
+    "lead": "Les produits nés chez Void Corp, conçus dans la Void Factory : une idée, un prototype, puis une décision, continuer ou arrêter. Chaque projet est listé avec son statut réel, y compris ceux qui ont été arrêtés.",
+    "open": "Ouvrir",
+    "noAddress": "Pas d'adresse publique",
+    "back": "Retour à l'accueil",
+    "status": {
+      "live": "En ligne",
+      "building": "En construction",
+      "internal": "Usage interne",
+      "reflection": "En réflexion",
+      "stopped": "Arrêté"
+    },
+    "entries": {
+      "atlas": {
+        "nature": "Produit",
+        "summary": "Un entretien guidé qui rend la carte de sa position et un premier pas à faire. Gratuit, sans compte."
+      },
+      "solaar": {
+        "nature": "Produit, né chez Void Corp",
+        "summary": "Un compagnon relationnel qui garde chaque connexion professionnelle vivante : capturer, comprendre, entretenir."
+      },
+      "partnership": {
+        "name": "Projet confidentiel",
+        "nature": "En association",
+        "summary": "Un projet mené en association, en cours de construction. Les détails restent confidentiels pour l'instant."
+      },
+      "nexus": {
+        "nature": "Outil interne",
+        "summary": "Le poste de pilotage de la holding. Réservé à l'usage interne."
+      },
+      "root": {
+        "nature": "Projet",
+        "summary": "Le projet racine. En réflexion."
+      },
+      "nebulabox": {
+        "nature": "Produit",
+        "summary": "Des listes de cadeaux partagées où les réservations restent cachées à l'organisateur. Mené jusqu'à la bêta, puis arrêté."
+      }
+    },
+    "othersHeading": "Les autres projets",
+    "previewAlt": "Page d'accueil de {name}"
   }
 }

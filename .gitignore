@@ -36,3 +36,8 @@ storybook-static/
 /playwright/.cache/
 
 /.npm-only-allow
+
+# Impeccable working files (review captures, decision-page logs)
+.impeccable/review/
+.impeccable/questions/
+*.tsbuildinfo

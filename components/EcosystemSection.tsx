@@ -31,18 +31,23 @@ export function EcosystemSection() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
           <EcosystemCard
-            cardKey="voidfactory"
+            cardKey="projects"
             accentColor="blue"
             delay={0}
-            navigatesTo="https://factory.voidcorp.io"
+            destination={{ kind: "internal", href: "/projets" }}
           />
           <EcosystemCard
             cardKey="volpio"
             accentColor="orange"
             delay={0.2}
-            navigatesTo="https://volpio.com"
+            destination={{ kind: "external", href: "https://volpio.com" }}
           />
-          <EcosystemCard cardKey="future" accentColor="purple" delay={0.4} isPlaceholder />
+          <EcosystemCard
+            cardKey="investments"
+            accentColor="purple"
+            delay={0.4}
+            destination={{ kind: "external", href: "https://www.blast.club" }}
+          />
         </div>
       </motion.div>
     </section>
