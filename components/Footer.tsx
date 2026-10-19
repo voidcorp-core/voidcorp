@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl"
 
+import { umamiEvent } from "lib/analytics"
+
 export function Footer() {
   const t = useTranslations()
 
@@ -12,6 +14,7 @@ export function Footer() {
         <div className="mb-8 flex items-center justify-center gap-6">
           <a
             href="https://www.linkedin.com/in/florentpellegrin/"
+            {...umamiEvent("social-click", { network: "linkedin" })}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("footer.social.linkedin")}
@@ -23,6 +26,7 @@ export function Footer() {
           </a>
           <a
             href="https://x.com/fl0pe_"
+            {...umamiEvent("social-click", { network: "x" })}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("footer.social.twitter")}
@@ -34,6 +38,7 @@ export function Footer() {
           </a>
           <a
             href="https://github.com/folpe"
+            {...umamiEvent("social-click", { network: "github" })}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("footer.social.github")}

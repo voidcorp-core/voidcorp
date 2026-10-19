@@ -6,6 +6,7 @@ import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
 import { Link } from "@/navigation"
 import { DottedGlowBackground } from "components/ui/dotted-glow-background"
+import { umamiEvent } from "lib/analytics"
 
 interface EcosystemCardProps {
   cardKey: keyof typeof icons
@@ -96,11 +97,17 @@ export function EcosystemCard({
     >
       <div className="relative flex aspect-square items-end justify-end overflow-hidden rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl border border-white/10 ring-1 ring-white/5 transition-all duration-300 group-hover:border-white/20">
         {destination?.kind === "internal" ? (
-          <Link href={destination.href} className="flex h-full w-full flex-col">
+          <Link href={destination.href} className="flex h-full w-full flex-col" {...umamiEvent("ecosystem-card", { target: cardKey })}>
             {content}
           </Link>
         ) : destination?.kind === "external" ? (
-          <a href={destination.href} target="_blank" rel="noopener noreferrer" className="flex h-full w-full flex-col">
+          <a
+            href={destination.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-full w-full flex-col"
+            {...umamiEvent("ecosystem-card", { target: cardKey })}
+          >
             {content}
           </a>
         ) : (

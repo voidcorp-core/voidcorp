@@ -7,6 +7,7 @@ import { useLocale } from "next-intl"
 import { useEffect, useRef, useState, useTransition } from "react"
 
 import { usePathname, useRouter } from "@/navigation"
+import { umamiEvent } from "lib/analytics"
 
 const languageButtonVariants = cva("w-full px-4 py-2 text-left text-sm transition-colors", {
   variants: {
@@ -83,6 +84,7 @@ export function LanguageSwitcher() {
         >
           <button
             onClick={() => handleLanguageChange("en")}
+            {...umamiEvent("language-switch", { locale: "en" })}
             className={languageButtonVariants({ active: locale === "en" })}
             role="option"
             aria-selected={locale === "en"}
@@ -91,6 +93,7 @@ export function LanguageSwitcher() {
           </button>
           <button
             onClick={() => handleLanguageChange("fr")}
+            {...umamiEvent("language-switch", { locale: "fr" })}
             className={languageButtonVariants({ active: locale === "fr" })}
             role="option"
             aria-selected={locale === "fr"}

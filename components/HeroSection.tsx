@@ -9,6 +9,7 @@ import { Link } from "@/navigation"
 import { useScrollOpacity } from "components/ScrollOpacityProvider"
 import { HoverBorderGradient } from "components/ui/hover-border-gradient"
 import { useSmoothScroll } from "hooks/useSmoothScroll"
+import { umamiEvent } from "lib/analytics"
 
 const UnicornScene = dynamic(() => import("unicornstudio-react"), {
   ssr: false,
@@ -69,6 +70,7 @@ export function HeroSection() {
           <HoverBorderGradient
             as={Link}
             href="/projets"
+            {...umamiEvent("cta-projects")}
             containerClassName="rounded-full"
             className="flex items-center gap-2 bg-void-bg px-6 py-3 text-sm font-medium sm:px-8 sm:py-4 sm:text-base"
           >
@@ -77,6 +79,7 @@ export function HeroSection() {
 
           <motion.button
             onClick={() => scrollTo("ecosystem", { offset: 80 })}
+            {...umamiEvent("cta-ecosystem")}
             className="inline-flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2 focus-visible:ring-offset-void-bg sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
