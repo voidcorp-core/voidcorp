@@ -111,6 +111,8 @@
         "nature": "Produit",
         "summary": "Des listes de cadeaux partagées où les réservations restent cachées à l'organisateur. Mené jusqu'à la bêta, puis arrêté."
       }
-    }
+    },
+    "othersHeading": "Les autres projets",
+    "previewAlt": "Page d'accueil de {name}"
   }
 }

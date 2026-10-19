@@ -111,6 +111,8 @@
         "nature": "Product",
         "summary": "Shared gift lists where reservations stay hidden from the organiser. Taken to beta, then stopped."
       }
-    }
+    },
+    "othersHeading": "Other projects",
+    "previewAlt": "{name} home page"
   }
 }

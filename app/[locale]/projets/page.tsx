@@ -1,14 +1,27 @@
 import type { Metadata } from "next"
+import Image, { type StaticImageData } from "next/image"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import { Link } from "@/navigation"
 import type { Locale } from "@/routing"
+import atlasPreview from "assets/projects/atlas.webp"
+import solaarPreview from "assets/projects/solaar.webp"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
-import { hostOf, type Project, PROJECTS, type ProjectStatus } from "lib/registry"
+import { hostOf, type Project, PROJECTS, type ProjectSlug, type ProjectStatus } from "lib/registry"
 import { pageMetadata } from "lib/site"
 
 type Props = { params: Promise<{ locale: Locale }> }
+
+// Screenshots of the live home pages (provenance in each file's sidecar). A project with a preview
+// and a public address is featured; every other project stays in the plain list.
+const PREVIEWS: Partial<Record<ProjectSlug, StaticImageData>> = { atlas: atlasPreview, solaar: solaarPreview }
+
+type FeaturedProject = Extract<Project, { url?: `https://${string}` }> & { url: `https://${string}` }
+
+function isFeatured(project: Project): project is FeaturedProject {
+  return Boolean(project.url) && project.slug in PREVIEWS
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
@@ -32,8 +45,15 @@ export default async function Projects({ params }: Props) {
           <h1 className="font-heading mb-6 text-4xl leading-tight sm:text-5xl md:text-6xl">{t("title")}</h1>
           <p className="max-w-2xl text-base leading-relaxed text-gray-300/80 sm:text-lg">{t("lead")}</p>
 
-          <ul className="mt-14 border-t border-white/10 md:mt-20">
-            {PROJECTS.map((project) => (
+          <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-2">
+            {PROJECTS.filter(isFeatured).map((project) => (
+              <FeaturedCard key={project.slug} project={project} />
+            ))}
+          </div>
+
+          <h2 className="font-heading mt-20 mb-2 text-2xl sm:text-3xl md:mt-28">{t("othersHeading")}</h2>
+          <ul className="border-t border-white/10">
+            {PROJECTS.filter((project) => !isFeatured(project)).map((project) => (
               <ProjectRow key={project.slug} project={project} />
             ))}
           </ul>
@@ -48,6 +68,44 @@ export default async function Projects({ params }: Props) {
       </main>
       <Footer />
     </div>
+  )
+}
+
+async function FeaturedCard({ project }: { project: FeaturedProject }) {
+  const t = await getTranslations("projects")
+  const preview = PREVIEWS[project.slug]
+  const name = project.name ?? t(`entries.${project.slug}.name`)
+
+  return (
+    <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition-colors duration-300 hover:border-white/25">
+      {preview && (
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10">
+          <Image
+            src={preview}
+            alt={t("previewAlt", { name })}
+            sizes="(min-width: 1024px) 480px, (min-width: 768px) 45vw, 92vw"
+            placeholder="blur"
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
+      <div className="flex flex-1 flex-col p-6 sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h3 className="font-heading text-3xl">{name}</h3>
+          <StatusPill status={project.status} label={t(`status.${project.status}`)} />
+        </div>
+        <p className="mt-1 text-xs tracking-widest text-gray-400 uppercase">{t(`entries.${project.slug}.nature`)}</p>
+        <p className="mt-4 flex-1 text-base leading-relaxed text-gray-300/80">{t(`entries.${project.slug}.summary`)}</p>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex min-h-11 items-center gap-2 self-start rounded-full border border-white/20 bg-white/5 px-5 text-sm font-medium transition-colors duration-300 after:absolute after:inset-0 hover:border-white/40 hover:bg-white/10"
+        >
+          {t("open")} <span className="text-gray-400">{hostOf(project.url)}</span> &rarr;
+        </a>
+      </div>
+    </article>
   )
 }
 

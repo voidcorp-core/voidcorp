@@ -7,7 +7,7 @@ test("home leads to the projects page", async ({ page }) => {
   await page.getByRole("link", { name: /Voir les projets/ }).click()
   await expect(page).toHaveURL(/\/projets$/)
   for (const name of ["Atlas", "Solaar", "Projet confidentiel", "Nexus", "Root", "NebulaBox"]) {
-    await expect(page.getByRole("heading", { level: 2, name })).toBeVisible()
+    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible()
   }
 })
 
