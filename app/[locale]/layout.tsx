@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 
 import { JsonLd } from "components/JsonLd"
+import { ReplayConsent } from "components/ReplayConsent"
 import { type Locale, locales } from "../../i18n"
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://voidcorp.io"
@@ -138,14 +139,11 @@ export default async function RootLayout({
           data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
           strategy="afterInteractive"
         />
-        {/* Session replays and heatmaps, sampled and masked server-side in Umami. */}
-        <Script
-          defer
-          src="https://umami.voidcorp.io/recorder.js"
-          data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
-          strategy="afterInteractive"
-        />
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          {/* Session replays and heatmaps load only after the visitor consents. */}
+          <ReplayConsent />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

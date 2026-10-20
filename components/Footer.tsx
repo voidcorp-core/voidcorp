@@ -2,7 +2,11 @@
 
 import { useTranslations } from "next-intl"
 
+import { Link } from "@/navigation"
 import { umamiEvent } from "lib/analytics"
+
+const LEGAL_LINK_CLASS =
+  "inline-flex min-h-11 items-center text-violet-300/60 underline-offset-4 transition-colors duration-300 hover:text-violet-300 hover:underline focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:outline-none"
 
 export function Footer() {
   const t = useTranslations()
@@ -53,6 +57,14 @@ export function Footer() {
         <p className="text-center text-sm text-violet-300/60">
           © {new Date().getFullYear()} {t("footer.copyright")}
         </p>
+        <nav aria-label={t("footer.legalNav")} className="mt-2 flex flex-wrap justify-center gap-x-6 text-sm">
+          <Link href="/mentions-legales" className={LEGAL_LINK_CLASS}>
+            {t("footer.legalNotice")}
+          </Link>
+          <Link href="/confidentialite" className={LEGAL_LINK_CLASS}>
+            {t("footer.privacy")}
+          </Link>
+        </nav>
       </div>
     </footer>
   )
