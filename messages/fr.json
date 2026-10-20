@@ -62,12 +62,13 @@
     "tagline": "Le vide n'est pas l'absence. C'est la possibilité."
   },
   "footer": {
-    "copyright": "Void Corp — Forgé en France",
+    "copyright": "Void Corp · Forgé en France",
     "social": {
       "linkedin": "LinkedIn",
       "twitter": "Twitter",
       "github": "GitHub"
-    }
+    },
+    "privacy": "Politique de confidentialité"
   },
   "projects": {
     "metaTitle": "Projets",
@@ -114,5 +115,77 @@
     },
     "othersHeading": "Les autres projets",
     "previewAlt": "Page d'accueil de {name}"
+  },
+  "consent": {
+    "label": "Enregistrement des sessions",
+    "text": "Nous aimerions enregistrer anonymement votre navigation (clics, défilement) pour améliorer le site. Les champs de saisie sont masqués. Rien n'est enregistré sans votre accord.",
+    "link": "En savoir plus",
+    "accept": "Accepter",
+    "refuse": "Refuser",
+    "status": {
+      "granted": "Vous avez accepté l'enregistrement des sessions.",
+      "denied": "Vous avez refusé l'enregistrement des sessions.",
+      "unset": "Vous n'avez pas encore fait de choix sur l'enregistrement des sessions."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Politique de confidentialité",
+    "metaDescription": "Les données que voidcorp.io collecte, pourquoi, combien de temps, et comment exercer vos droits.",
+    "badge": "Confidentialité",
+    "title": "Politique de confidentialité",
+    "updated": "Mise à jour le 20 octobre 2026",
+    "lead": "voidcorp.io ne demande ni compte, ni formulaire, et ne dépose aucun cookie. Deux traitements tournent sur le site : une mesure d'audience, et un enregistrement des sessions uniquement si vous l'acceptez.",
+    "back": "Retour à l'accueil",
+    "controller": {
+      "title": "Responsable du traitement",
+      "body": "VOID CORP, société par actions simplifiée immatriculée sous le numéro SIREN 848 408 258, dont le siège est situé 40 rue des Princes de Wagram, 94520 Mandres-les-Roses, France."
+    },
+    "audience": {
+      "title": "Mesure d'audience",
+      "body": "Nous utilisons Umami, un outil de mesure d'audience sans cookie, pour savoir quelles pages sont consultées et quels liens sont cliqués. Votre adresse IP sert à déduire votre pays puis n'est pas conservée.",
+      "items": [
+        "Pages consultées et site de provenance",
+        "Type d'appareil, navigateur, système d'exploitation et langue",
+        "Pays, déduit de l'adresse IP",
+        "Clics sur les liens principaux (projets, réseaux sociaux, changement de langue)"
+      ],
+      "basis": "Base légale : notre intérêt légitime à mesurer l'audience du site. Ce traitement est strictement limité à la mesure d'audience et dispensé de consentement."
+    },
+    "replays": {
+      "title": "Enregistrement des sessions et cartes de chaleur",
+      "body": "Si vous l'acceptez, Umami enregistre votre navigation pour nous montrer comment le site est utilisé et où il peut être amélioré. Seule une partie des visites est enregistrée, chacune limitée à quelques minutes.",
+      "items": [
+        "Mouvements de la souris, clics et défilement",
+        "Structure des pages affichées",
+        "Les champs de saisie sont masqués avant l'envoi"
+      ],
+      "basis": "Base légale : votre consentement, que vous pouvez retirer à tout moment en bas de cette page."
+    },
+    "storage": {
+      "title": "Ce qui est stocké sur votre appareil",
+      "body": "Aucun cookie. Votre choix sur l'enregistrement des sessions est conservé dans le stockage local de votre navigateur pendant six mois, puis la question vous est reposée."
+    },
+    "recipients": {
+      "title": "Destinataires et sous-traitants",
+      "body": "Les données ne sont ni vendues ni partagées à des fins publicitaires. Seuls ces prestataires techniques y ont accès :",
+      "items": [
+        "Vercel Inc. (États-Unis) : hébergement du site",
+        "Cloudflare Inc. (États-Unis) : réseau de diffusion devant notre instance Umami"
+      ],
+      "transfers": "Ces transferts hors de l'Union européenne sont encadrés par le Data Privacy Framework UE - États-Unis, auquel ces deux sociétés adhèrent."
+    },
+    "retention": {
+      "title": "Durée de conservation",
+      "body": "Les données de mesure d'audience et les enregistrements de sessions sont conservés 25 mois au plus, puis supprimés."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "body": "Vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité sur vos données. Pour les exercer, écrivez à <email>admin@voidcorp.io</email>. Nous répondons sous un mois.",
+      "complaint": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la <cnil>CNIL</cnil>."
+    },
+    "settings": {
+      "title": "Votre choix",
+      "body": "Modifiez ici votre réponse sur l'enregistrement des sessions. Elle prend effet immédiatement."
+    }
   }
 }

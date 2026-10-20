@@ -62,12 +62,13 @@
     "tagline": "The void is not absence. It is possibility."
   },
   "footer": {
-    "copyright": "Void Corp — Forged in France",
+    "copyright": "Void Corp · Forged in France",
     "social": {
       "linkedin": "LinkedIn",
       "twitter": "Twitter",
       "github": "GitHub"
-    }
+    },
+    "privacy": "Privacy policy"
   },
   "projects": {
     "metaTitle": "Projects",
@@ -114,5 +115,77 @@
     },
     "othersHeading": "Other projects",
     "previewAlt": "{name} home page"
+  },
+  "consent": {
+    "label": "Session recording",
+    "text": "We would like to record your visit anonymously (clicks, scrolling) to improve the site. Input fields are masked. Nothing is recorded without your consent.",
+    "link": "Learn more",
+    "accept": "Accept",
+    "refuse": "Decline",
+    "status": {
+      "granted": "You accepted session recording.",
+      "denied": "You declined session recording.",
+      "unset": "You have not made a choice about session recording yet."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy",
+    "metaDescription": "What data voidcorp.io collects, why, for how long, and how to exercise your rights.",
+    "badge": "Privacy",
+    "title": "Privacy policy",
+    "updated": "Updated October 20, 2026",
+    "lead": "voidcorp.io asks for no account, no form, and sets no cookie. Two kinds of processing run on the site: audience measurement, and session recording only if you accept it.",
+    "back": "Back to home",
+    "controller": {
+      "title": "Data controller",
+      "body": "VOID CORP, a French simplified joint-stock company (SAS) registered under SIREN 848 408 258, with its registered office at 40 rue des Princes de Wagram, 94520 Mandres-les-Roses, France."
+    },
+    "audience": {
+      "title": "Audience measurement",
+      "body": "We use Umami, a cookieless analytics tool, to learn which pages are viewed and which links are clicked. Your IP address is used to derive your country and is not stored.",
+      "items": [
+        "Pages viewed and referring site",
+        "Device type, browser, operating system and language",
+        "Country, derived from the IP address",
+        "Clicks on key links (projects, social networks, language switch)"
+      ],
+      "basis": "Legal basis: our legitimate interest in measuring the site's audience. This processing is strictly limited to audience measurement and exempt from consent."
+    },
+    "replays": {
+      "title": "Session recording and heatmaps",
+      "body": "If you accept, Umami records your visit to show us how the site is used and where it can improve. Only a share of visits is recorded, each capped at a few minutes.",
+      "items": [
+        "Mouse movements, clicks and scrolling",
+        "Structure of the pages displayed",
+        "Input fields are masked before anything is sent"
+      ],
+      "basis": "Legal basis: your consent, which you can withdraw at any time at the bottom of this page."
+    },
+    "storage": {
+      "title": "What is stored on your device",
+      "body": "No cookie. Your choice about session recording is kept in your browser's local storage for six months, after which you are asked again."
+    },
+    "recipients": {
+      "title": "Recipients and processors",
+      "body": "Data is never sold or shared for advertising. Only these technical providers can access it:",
+      "items": [
+        "Vercel Inc. (United States): site hosting",
+        "Cloudflare Inc. (United States): delivery network in front of our Umami instance"
+      ],
+      "transfers": "These transfers outside the European Union are covered by the EU - US Data Privacy Framework, which both companies have joined."
+    },
+    "retention": {
+      "title": "Retention",
+      "body": "Audience data and session recordings are kept for 25 months at most, then deleted."
+    },
+    "rights": {
+      "title": "Your rights",
+      "body": "You have the right to access, rectify, erase, object to, restrict and port your data. To exercise them, write to <email>admin@voidcorp.io</email>. We reply within one month.",
+      "complaint": "If you believe your rights are not respected, you can lodge a complaint with the <cnil>CNIL</cnil>, the French data protection authority."
+    },
+    "settings": {
+      "title": "Your choice",
+      "body": "Change your answer about session recording here. It takes effect immediately."
+    }
   }
 }

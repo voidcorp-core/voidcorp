@@ -6,7 +6,7 @@ import { env } from "env.mjs"
 
 export const SITE_URL = env.NEXT_PUBLIC_SITE_URL
 
-export type SitePath = "/" | "/projets"
+export type SitePath = "/" | "/projets" | "/confidentialite"
 
 // Absolute URL of a page in a locale, with the locale's own slug and prefix rules.
 export function localizedUrl(path: SitePath, locale: Locale): string {
