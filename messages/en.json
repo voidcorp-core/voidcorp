@@ -68,7 +68,9 @@
       "twitter": "Twitter",
       "github": "GitHub"
     },
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "legalNotice": "Legal notice",
+    "legalNav": "Legal links"
   },
   "projects": {
     "metaTitle": "Projects",
@@ -138,7 +140,7 @@
     "back": "Back to home",
     "controller": {
       "title": "Data controller",
-      "body": "VOID CORP, a French simplified joint-stock company (SAS) registered under SIREN 848 408 258, with its registered office at 40 rue des Princes de Wagram, 94520 Mandres-les-Roses, France."
+      "body": "VOID CORP, a French single-member limited liability company (EURL) registered with the Créteil Trade and Companies Register under number 848 408 258, with its registered office at 40 rue des Princes de Wagram, 94520 Mandres-les-Roses, France."
     },
     "audience": {
       "title": "Audience measurement",
@@ -186,6 +188,40 @@
     "settings": {
       "title": "Your choice",
       "body": "Change your answer about session recording here. It takes effect immediately."
+    }
+  },
+  "legal": {
+    "metaTitle": "Legal notice",
+    "metaDescription": "Publisher, publication director and host of voidcorp.io.",
+    "badge": "Legal notice",
+    "title": "Legal notice",
+    "lead": "Information required by article 6 of French law no. 2004-575 of June 21, 2004 on confidence in the digital economy.",
+    "back": "Back to home",
+    "publisher": {
+      "title": "Publisher",
+      "items": [
+        "VOID CORP, a French single-member limited liability company (EURL) with a share capital of €2,000",
+        "Registered office: 40 rue des Princes de Wagram, 94520 Mandres-les-Roses, France",
+        "Registered with the Créteil Trade and Companies Register under number 848 408 258",
+        "EU VAT number: FR76848408258"
+      ],
+      "contact": "Contact: <email>admin@voidcorp.io</email>"
+    },
+    "director": {
+      "title": "Publication director",
+      "body": "Florent Pellegrin, managing director of VOID CORP."
+    },
+    "host": {
+      "title": "Host",
+      "body": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States. <link>vercel.com</link>"
+    },
+    "ip": {
+      "title": "Intellectual property",
+      "body": "The texts, visuals, logos and the Void Corp brand on this site belong to VOID CORP unless stated otherwise. Any full or partial reproduction or reuse without prior written permission is prohibited."
+    },
+    "data": {
+      "title": "Personal data",
+      "body": "How data is collected and processed on this site is described in the <link>privacy policy</link>."
     }
   }
 }

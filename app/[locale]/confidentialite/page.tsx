@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import { getTranslations, setRequestLocale } from "next-intl/server"
-import type { ReactNode } from "react"
 import { z } from "zod"
 
 import { Link } from "@/navigation"
 import type { Locale } from "@/routing"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
+import { LegalSection } from "components/LegalSection"
 import { ReplayConsentSettings } from "components/ReplayConsent"
 import { pageMetadata } from "lib/site"
 
@@ -40,37 +40,37 @@ export default async function Privacy({ params }: Props) {
           <p className="mb-6 text-sm text-gray-400">{t("updated")}</p>
           <p className="text-base leading-relaxed text-gray-300/80 sm:text-lg">{t("lead")}</p>
 
-          <Section title={t("controller.title")}>
+          <LegalSection title={t("controller.title")}>
             <p>{t("controller.body")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("audience.title")}>
+          <LegalSection title={t("audience.title")}>
             <p>{t("audience.body")}</p>
             <List items={items("audience")} />
             <p>{t("audience.basis")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("replays.title")}>
+          <LegalSection title={t("replays.title")}>
             <p>{t("replays.body")}</p>
             <List items={items("replays")} />
             <p>{t("replays.basis")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("storage.title")}>
+          <LegalSection title={t("storage.title")}>
             <p>{t("storage.body")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("recipients.title")}>
+          <LegalSection title={t("recipients.title")}>
             <p>{t("recipients.body")}</p>
             <List items={items("recipients")} />
             <p>{t("recipients.transfers")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("retention.title")}>
+          <LegalSection title={t("retention.title")}>
             <p>{t("retention.body")}</p>
-          </Section>
+          </LegalSection>
 
-          <Section title={t("rights.title")}>
+          <LegalSection title={t("rights.title")}>
             <p>
               {t.rich("rights.body", {
                 email: (chunks) => (
@@ -94,12 +94,12 @@ export default async function Privacy({ params }: Props) {
                 ),
               })}
             </p>
-          </Section>
+          </LegalSection>
 
-          <Section id="choix" title={t("settings.title")}>
+          <LegalSection id="choix" title={t("settings.title")}>
             <p>{t("settings.body")}</p>
             <ReplayConsentSettings />
-          </Section>
+          </LegalSection>
 
           <Link
             href="/"
@@ -111,15 +111,6 @@ export default async function Privacy({ params }: Props) {
       </main>
       <Footer />
     </div>
-  )
-}
-
-function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
-  return (
-    <section id={id} className="mt-14 border-t border-white/10 pt-10 md:mt-16">
-      <h2 className="font-heading mb-5 text-2xl sm:text-3xl">{title}</h2>
-      <div className="space-y-4 text-base leading-relaxed text-gray-300/80">{children}</div>
-    </section>
   )
 }
 
