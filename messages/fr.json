@@ -169,12 +169,12 @@
     },
     "recipients": {
       "title": "Destinataires et sous-traitants",
-      "body": "Les données ne sont ni vendues ni partagées à des fins publicitaires. Seuls ces prestataires techniques y ont accès :",
+      "body": "Les données ne sont ni vendues ni partagées à des fins publicitaires. Umami est auto-hébergé sur un serveur de VOID CORP situé en France : les statistiques et les enregistrements y sont stockés et ne quittent pas l'Union européenne. Seuls ces prestataires techniques interviennent :",
       "items": [
         "Vercel Inc. (États-Unis) : hébergement du site",
-        "Cloudflare Inc. (États-Unis) : réseau de diffusion devant notre instance Umami"
+        "Cloudflare Inc. (États-Unis) : réseau de diffusion par lequel transitent les requêtes vers notre instance Umami, sans y stocker les données"
       ],
-      "transfers": "Ces transferts hors de l'Union européenne sont encadrés par le Data Privacy Framework UE - États-Unis, auquel ces deux sociétés adhèrent."
+      "transfers": "Ces prestataires adhèrent au Data Privacy Framework UE - États-Unis, qui encadre les transferts de données hors de l'Union européenne."
     },
     "retention": {
       "title": "Durée de conservation",
