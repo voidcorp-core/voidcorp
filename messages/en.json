@@ -169,12 +169,12 @@
     },
     "recipients": {
       "title": "Recipients and processors",
-      "body": "Data is never sold or shared for advertising. Only these technical providers can access it:",
+      "body": "Data is never sold or shared for advertising. Umami is self-hosted on a VOID CORP server located in France: statistics and recordings are stored there and never leave the European Union. Only these technical providers are involved:",
       "items": [
         "Vercel Inc. (United States): site hosting",
-        "Cloudflare Inc. (United States): delivery network in front of our Umami instance"
+        "Cloudflare Inc. (United States): delivery network that requests to our Umami instance pass through, without storing the data"
       ],
-      "transfers": "These transfers outside the European Union are covered by the EU - US Data Privacy Framework, which both companies have joined."
+      "transfers": "Both providers have joined the EU - US Data Privacy Framework, which governs data transfers outside the European Union."
     },
     "retention": {
       "title": "Retention",
