@@ -138,6 +138,13 @@ export default async function RootLayout({
           data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
           strategy="afterInteractive"
         />
+        {/* Session replays and heatmaps, sampled and masked server-side in Umami. */}
+        <Script
+          defer
+          src="https://umami.voidcorp.io/recorder.js"
+          data-website-id="a92c4abb-ab24-4e97-843b-b21873cdab88"
+          strategy="afterInteractive"
+        />
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
