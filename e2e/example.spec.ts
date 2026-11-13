@@ -6,7 +6,7 @@ test("home leads to the projects page", async ({ page }) => {
   await expect(page).toHaveTitle(/Void Corp/)
   await page.getByRole("link", { name: /Voir les projets/ }).click()
   await expect(page).toHaveURL(/\/projets$/)
-  for (const name of ["Atlas", "Solaar", "Projet confidentiel", "Nexus", "Root", "NebulaBox"]) {
+  for (const name of ["Atlas", "Solaar", "Rekalibr", "Projet confidentiel", "Nexus", "Root", "NebulaBox"]) {
     await expect(page.getByRole("heading", { name, exact: true })).toBeVisible()
   }
 })

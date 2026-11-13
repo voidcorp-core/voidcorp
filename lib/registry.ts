@@ -2,7 +2,7 @@
 
 export type ProjectStatus = "live" | "building" | "internal" | "reflection" | "stopped"
 
-export type ProjectSlug = "atlas" | "solaar" | "partnership" | "nexus" | "root" | "nebulabox"
+export type ProjectSlug = "atlas" | "solaar" | "rekalibr" | "partnership" | "nexus" | "root" | "nebulabox"
 
 type ProjectBase = { slug: ProjectSlug; name: string | null }
 
@@ -17,6 +17,7 @@ export type Project =
 export const PROJECTS: readonly Project[] = [
   { slug: "atlas", name: "Atlas", status: "live", url: "https://atlas.voidcorp.io" },
   { slug: "solaar", name: "Solaar", status: "building", url: "https://solaar.app" },
+  { slug: "rekalibr", name: "Rekalibr", status: "building", url: "https://rekalibr.com" },
   { slug: "partnership", name: null, status: "building" },
   { slug: "nexus", name: "Nexus", status: "internal" },
   { slug: "root", name: "Root", status: "reflection" },

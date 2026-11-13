@@ -32,6 +32,7 @@ A holding that publishes its own ledger: what is live, what is internal, what wa
   - **Nexus**: internal steering tool for the holding. Private, no public link.
   - **Atlas**: live at atlas.voidcorp.io. A guided interview that hands you a map of where you stand and one next step. Free, no account.
   - **Solaar**: born at Void Corp, live at solaar.app. A relationship companion that keeps professional connections alive: capture, understand, maintain. Still in active build.
+  - **Rekalibr** (added 2026-11-13): the logbook for licensed sport shooters, public site at rekalibr.com, mobile app in build. The site design is being redone, so it gets no preview screenshot or featured card until the new design ships.
   - **Confidential project**: built in partnership, in build. No name, no partner named.
   - **NebulaBox**: shared gift lists where reservations stay hidden from the list owner. Taken to beta, then stopped.
   - **Root**: the root project. In reflection. Say nothing more publicly.
@@ -55,7 +56,7 @@ A holding that publishes its own ledger: what is live, what is internal, what wa
 
 ## Evidence on Hand
 
-- Two live public products with URLs (Atlas, Solaar), one internal tool (Nexus), one stopped product (NebulaBox), one project in reflection (Root).
+- Three public products with URLs (Atlas, Solaar, Rekalibr), one internal tool (Nexus), one stopped product (NebulaBox), one project in reflection (Root).
 - Founder: Florent Pellegrin (LinkedIn, X @fl0pe_, GitHub folpe).
 - Absent and never to be fabricated: client logos, testimonials, user counts, revenue, delivery-time guarantees, launch dates, reasons a project was stopped beyond what is stated above.
 
