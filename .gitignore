@@ -41,3 +41,5 @@ storybook-static/
 .impeccable/review/
 .impeccable/questions/
 *.tsbuildinfo
+.vercel
+.env*
